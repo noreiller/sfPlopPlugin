@@ -1,0 +1,199 @@
+/*
+    Document   : theme.css
+    Created on : 23 mai 2011, 16:10:01
+    Author     : Aurélien MANCA <aurelien.manca@gmail.com>
+    Description: Theme dedicated to the writer Florentine REY
+*/
+
+/* COMMON LAYOUT */
+body.florentine .container {
+  background: #fff url(../images/bg.png) no-repeat 50% 0;
+  padding: 0 30px;
+  width: 920px;
+}
+body.florentine.admin {
+  background-position: 50% 52px;
+}
+body.florentine .l { width: 35%; }
+body.florentine .c { width: 45%; }
+body.florentine .r { width: 20%; }
+body.florentine .lc { width: 80%; }
+body.florentine .cr { width: 65%; }
+
+/* COMMON CONTENT */
+body.florentine .container .section .content {
+  color: #969696;
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: 12px;
+}
+body.florentine .container .section .content a {
+  color: #AAC916;
+}
+body.florentine .container .section .content ul.w-menu li {
+  border-color: #c0c0c0;
+}
+
+/* SLOTS */
+/** SLOTS / RichText **/
+body.florentine .container .section.RichText .content {
+  margin-top: 10px;
+}
+body.florentine .container .section .content.RichText h1 {
+  background: url(../images/bullet-full.png) no-repeat 0 4px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 35px;
+}
+body.florentine .container .section .content.RichText h2 {
+  background: url(../images/bullet-empty.png) no-repeat 0 4px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 35px;
+}
+body.florentine .container .section .content.RichText h3 {
+  color: #AAC916;
+}
+body.florentine .container .section .content.RichText h3,
+body.florentine .container .section .content.RichText h4,
+body.florentine .container .section .content.RichText h5,
+body.florentine .container .section .content.RichText h6 {
+  font-size: 12px;
+  font-weight: normal;
+}
+body.florentine .container .section .content.RichText img {
+  margin: 10px;
+}
+body.florentine .container .section .content.RichText img[style~="left;"] {
+  margin: 10px 10px 10px 0;
+}
+body.florentine .container .section .content.RichText img[style~="right;"] {
+  margin: 10px 0 10px 10px;
+}
+
+/** SLOTS / Date **/
+body.florentine .container .section.Date .content {
+  padding-top: 5px;
+}
+
+/** SLOTS / LocaleNavigation **/
+body.florentine .container .section.LocaleNavigation .content {
+  padding-top: 5px;
+  text-align: right;
+}
+
+/* PageHeader */
+body.florentine .container .section.PageHeader .content {
+  min-height: 96px;
+  padding-top: 30px;
+  padding-left: 27px;
+}
+body.florentine .container .section.PageHeader .content h1 {
+  background: none;
+  font-size: 35px;
+  font-weight: normal;
+  padding-left: 0;
+}
+body.florentine .container .section.PageHeader .content h1:first-letter {
+  color: #000;
+  font-size: 45px;
+}
+body.florentine .container .section.PageHeader .content a {
+  text-decoration: none;
+}
+
+/** SLOTS / PageTitle **/
+body.florentine .container .section.PageTitle .content {
+  border-bottom: 1px solid #c0c0c0;
+  padding-bottom: 10px;
+}
+body.florentine .container .section.PageTitle .content h1 {
+  background-position: 0 12px;
+  font-size: 20px;
+  font-weight: normal;
+  padding-left: 40px;
+}
+
+/** SLOTS / SecondNavigation **/
+body.florentine .container .section.SecondNavigation .content {
+  color: #999;
+  font-size: 10px;
+  padding-top: 95px;
+  text-align: right;
+}
+body.florentine .container .section.SecondNavigation .content a {
+  color: #999;
+  text-decoration: none;
+}
+body.florentine .container .section.SecondNavigation .content a:hover {
+  text-decoration: underline;
+}
+body.florentine .container .section.SecondNavigation .content li {
+  border: 0;
+}
+body.florentine .container .section.SecondNavigation .content strong {
+  font-style: italic;
+  font-weight: normal;
+}
+
+/** SLOTS / MainNavigation **/
+body.florentine .container .section.MainNavigation .content {
+  font-family: 'Cabin', arial, serif;
+  padding-right: 75px;
+}
+body.florentine .container .section.MainNavigation .content > ul {
+  position: relative;
+}
+body.florentine .container .section.MainNavigation .content:before,
+body.florentine .container .section.MainNavigation .content > ul:before,
+body.florentine .container .section.MainNavigation .content > ul:after {
+  background-color: #c0c0c0;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 1px;
+}
+body.florentine .container .section.MainNavigation .content:before {
+  height: 108%;
+  top: -31px;
+  left: 32px;
+}
+body.florentine .container .section.MainNavigation .content > ul:before {
+  height: 115%;
+  left: 45px;
+  top: 20px;
+}
+body.florentine .container .section.MainNavigation .content > ul:after {
+  bottom: 5px;
+  height: 90%;
+  right: 25px;
+}
+body.florentine .container .section.MainNavigation .content li {
+  border-top: solid #c0c0c0;
+  border-width: 1px 0 0;
+  display: block;
+  margin: 0;
+  padding: 15px 0 15px 70px;
+}
+body.florentine .container .section.MainNavigation .content li:first-child {
+  border-top-width: 0;
+}
+body.florentine .container .section.MainNavigation .content .element {
+  color: #000;
+  font-size: 21px;
+  padding: 0;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+body.florentine .container .section.MainNavigation .content li a.element:hover,
+body.florentine .container .section.MainNavigation .content li.current .element {
+  color: #AAC916;
+}
+body.florentine .container .section.MainNavigation .content .element strong {
+  font-weight: normal;
+}
+body.florentine .container .section.MainNavigation .content li.current .element strong {
+  font-weight: bold;
+}

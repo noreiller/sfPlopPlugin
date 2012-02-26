@@ -1,0 +1,69 @@
+propel:
+  _attributes:          { package: plugins.sfPlopPlugin.lib.model }
+
+  sf_plop_page:
+    _attributes:        { phpName: sfPlopPage }
+    _propel_behaviors:
+      nested_set:
+      sluggable:        { slug_column: "slug", permanent: true }
+      i18n:
+        default_locale: "fr"
+        locale_alias:   "culture"
+        i18n_columns:   "title, subtitle, seo_title, seo_description, seo_keywords"
+    id:
+    slug:               { type: varchar, size: 255, index: unique }
+    title:              { type: varchar, size: 255 }
+    subtitle:           { type: varchar, size: 255 }
+    seo_title:          { type: varchar, size: 255 }
+    seo_description:    { type: varchar, size: 255 }
+    seo_keywords:       { type: varchar, size: 255 }
+    theme:              { type: varchar, size: 255  }
+    icon:               { type: longvarchar }
+    #redirection:        { type: varchar, size: 255 }
+    is_published:       { type: boolean, default: true }
+    is_category:        { type: boolean, default: false }
+    template_id:        { type: integer, foreignTable: sf_plop_page, foreignReference: id, required: false, onDelete: setnull }
+    created_at:         { type: timestamp }
+    updated_at:         { type: timestamp }
+
+  sf_plop_slot:
+    _attributes:        { phpName: sfPlopSlot }
+    _propel_behaviors:
+      sortable:
+        use_scope:      true
+        scope_column:   page_id
+    id:
+    page_id:            { type: integer, foreignTable: sf_plop_page, foreignReference: id, required: true, onDelete: cascade }
+    layout:             { type: varchar(100), required: true }
+    template:           { type: varchar(100), required: true }
+    is_published:       { type: boolean, default: true }
+    is_editable:        { type: boolean, default: true }
+    created_at:         { type: timestamp }
+    updated_at:         { type: timestamp }
+
+  sf_plop_slot_config:
+    _attributes:        { phpName: sfPlopSlotConfig }
+    _propel_behaviors:
+      query_cache:
+      i18n:
+        default_locale: "fr"
+        locale_alias:   "culture"
+        i18n_columns:   "value, options"
+    id:
+    slot_id:            { type: integer, foreignTable: sf_plop_slot, foreignReference: id, required: true, onDelete: cascade }
+    page_id:            { type: integer, foreignTable: sf_plop_page, foreignReference: id, required: true, onDelete: cascade }
+    value:              { type: longvarchar }
+    options:            { type: longvarchar }
+    created_at:         { type: timestamp }
+    updated_at:         { type: timestamp }
+
+  sf_plop_config:
+    _attributes:  { phpName: sfPlopConfig }
+    id:
+    name:         { type: varchar(255), primaryKey: true, required: true }
+    value:        { type: longvarchar, required: true }
+    created_at:   { type: timestamp }
+    updated_at:   { type: timestamp }
+
+
+

@@ -1,0 +1,331 @@
+/*
+    Document   : theme.css
+    Created on : 5 january 2012, 15:10:04
+    Author     : Aurélien MANCA <aurelien.manca@gmail.com>
+    Description: Architect
+*/
+
+/* LAYOUT */
+body.architect {
+  background: #eee url(../images/bg.png);
+}
+body.architect .container {
+  padding-top: 10px;
+  width: 800px;
+}
+body.architect .container .ml .content,
+body.architect .container .lcr .content,
+body.architect .container .lc .content,
+body.architect .container .l .content {
+  padding-left: 75px;
+}
+body.architect .container .mr .content,
+body.architect .container .lcr .content,
+body.architect .container .cr .content,
+body.architect .container .r .content {
+  padding-right: 75px;
+}
+
+/* CONTENT */
+body.architect .container .section .content {
+  color: #373739;
+  font-family: 'Terminal Dosis', sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  -moz-text-shadow: 0 1px rgba(255, 255, 255, .36);
+  -ms-text-shadow: 0 1px rgba(255, 255, 255, .36);
+  -o-text-shadow: 0 1px rgba(255, 255, 255, .36);
+  -webkit-text-shadow: 0 1px rgba(255, 255, 255, .36);
+  text-shadow: 0 1px rgba(255, 255, 255, .36);
+}
+/** CONTENT / links **/
+body.architect .container .section .content,
+body.architect .container .section .content a {
+  color: #373739;
+}
+body.architect .container .section .content a {
+  text-decoration: none;
+}
+body.architect .container .section .content a:hover {
+  text-decoration: underline;
+}
+
+/** CONTENT / menus **/
+body.architect .container .section .content .w-menu strong {
+  font-weight: normal;
+}
+
+/** CONTENT / titles **/
+body.architect .container .section .content h1 {
+  font-size: 21px;
+}
+body.architect .container .section .content h2 {
+  font-size: 18px;
+}
+body.architect .container .section .content h3 {
+  font-size: 16px;
+}
+body.architect .container .section .content h4 {
+  font-size: 14px;
+}
+
+/** CONTENT / forms **/
+body.architect .container .section .content .w-form .form-row:first-child {
+  margin-top: 0;
+}
+body.architect .container .section .content .w-form input,
+body.architect .container .section .content .w-form select,
+body.architect .container .section .content .w-form textarea {
+  background-color: #dedede;
+  border: 0;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: 0 1px 2px #000 inset;
+  -ms-box-shadow: 0 1px 2px #000 inset;
+  -o-box-shadow: 0 1px 2px #000 inset;
+  -webkit-box-shadow: 0 1px 2px #000 inset;
+  box-shadow: 0 1px 2px #000 inset;
+  color: #373739;
+  font-family: 'Terminal Dosis', sans-serif;
+  width: 100%;
+}
+body.architect .container .section .content .w-form input[type=submit] {
+  background: -moz-linear-gradient(top, #fff, #d0d3d7);
+  background: -ms-linear-gradient(top, #fff, #d0d3d7);
+  background: -o-linear-gradient(top, #fff, #d0d3d7);
+  background: -webkit-linear-gradient(top, #fff, #d0d3d7);
+  background: linear-gradient(top, #fff, #d0d3d7);
+  width: auto;
+}
+
+/** CONTENT / galleries and images **/
+body.architect .container .section .content .w-gallery .w-menu img {
+  max-width: 100px;
+}
+body.architect .container .section .content .w-gallery {
+  text-align: center;
+}
+body.architect .container .section .content .w-gallery .w-gallery-content {
+  padding: 15px 0;
+}
+body.architect .container .section .content .w-gallery .w-gallery-content-img {
+  -moz-box-shadow: 0 0 3px #666;
+  -ms-box-shadow: 0 0 3px #666;
+  -o-box-shadow: 0 0 3px #666;
+  -webkit-box-shadow: 0 0 3px #666;
+  box-shadow: 0 0 3px #666;
+}
+body.architect .container .section .content .w-gallery .w-menu img {
+  max-width: 100px;
+}
+body.architect .container .section .content .w-gallery .w-gallery-prev,
+body.architect .container .section .content .w-gallery .w-gallery-next {
+  background-color: #eee;
+  background-color: rgba(255,255,255,.2);
+  background-position: center;
+  background-repeat: no-repeat;
+  text-indent: -99999px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 40px;
+}
+body.architect .container .section .content .w-gallery .w-gallery-prev {
+  background-image: url(../images/arrow-left.png);
+  left: 0;
+}
+body.architect .container .section .content .w-gallery .w-gallery-next {
+  background-image: url(../images/arrow-right.png);
+  right: 0;
+}
+body.architect .container .section .content .w-gallery .w-gallery-prev:hover,
+body.architect .container .section .content .w-gallery .w-gallery-next:hover {
+  background-color: #ff0;
+  background-color: rgba(255,255,0,.2);
+}
+
+body.architect .container .section.lcr .content .w-gallery .w-gallery-content-img {
+  max-width: 500px;
+}
+body.architect .container .section.lcr .content .w-gallery .w-gallery-content {
+  width: 800px;
+}
+
+/* SLOTS */
+/** SLOTS / AssetGalleryNavigation **/
+body.architect .container .AssetGalleryNavigation.lcr .content {
+  padding: 0 20px;
+}
+body.architect .container .AssetGalleryNavigation .content .w-list {
+  list-style-type: none;
+  margin: 0;
+  position: relative;
+}
+body.architect .container .AssetGalleryNavigation .content .w-list li {
+  display: inline-block;
+/*   float: left; */
+  padding: 2%;
+  vertical-align: top;
+  width: 29%;
+}
+body.architect .container .AssetGalleryNavigation .content .w-list a {
+  text-decoration: none;
+}
+body.architect .container .AssetGalleryNavigation .content .w-list img {
+  border: 5px solid #eee;
+  border-color: rgba(238,238,238,.93);
+  max-width: 210px;
+}
+body.architect .container .AssetGalleryNavigation .content .w-list span {
+  display: block;
+  padding: 4px 20px;
+}
+body.architect .container .AssetGalleryNavigation .content .w-list a:hover span {
+  background-color: #eee;
+  background-color: rgba(238,238,238,.93);
+}
+
+/** SLOTS / AssetGallery **/
+body.architect .container .AssetGallery .content {
+  background: url(../images/shadow-top.png) top center no-repeat;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+body.architect .container .AssetGallery .content:after {
+  background: url(../images/shadow-bot.png) 0 center no-repeat;
+  bottom: 0;
+  content: " ";
+  height: 15px;
+  position: absolute;
+  width: 100%;
+}
+body.architect .container .AssetGallery.lcr .content {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/** SLOTS / Asset **/
+body.architect .container .Asset .content {
+  text-align: center;
+}
+body.architect .container .Asset.lcr .content {
+  background: url(../images/hr-1.png) bottom center no-repeat;
+  padding-bottom: 15px;
+}
+body.architect .container .Asset.l .content {
+  text-align: right;
+}
+
+/** SLOTS / RichText **/
+body.architect .container .RichText .content {
+  text-align: justify;
+}
+body.architect .container .RichText .content p {
+  margin-bottom: 10px;
+}
+body.architect .container .RichText.lcr .content {
+  padding-left: 120px;
+  padding-right: 120px;
+}
+body.architect .container .RichText.cr .content {
+  padding-left: 40px;
+  padding-top: 32px;
+}
+body.architect .container .RichText.ml .content {
+  padding-right: 20px;
+}
+body.architect .container .MainNavigation + .RichText.lcr .content {
+  padding: 30px 0;
+}
+
+/** SLOTS / MainNavigation **/
+body.architect .container .MainNavigation .content {
+  margin-bottom: 30px;
+  padding: 10px 0;
+  text-align: right;
+}
+body.architect .container .MainNavigation.l .content {
+  margin-top: 30px;
+}
+body.architect .container .MainNavigation.lcr .content {
+  background: url(../images/hr-2.png) bottom center no-repeat;
+  text-align: center;
+}
+body.architect .container .MainNavigation .content li {
+  border: 0;
+  margin-bottom: 10px;
+  padding: 0;
+}
+body.architect .container .MainNavigation.lcr .content li {
+  margin-bottom: 0;
+}
+body.architect .container .MainNavigation .content .element {
+  color: #fff;
+  font-size: 21px;
+  padding: 5px 15px;
+  text-transform: uppercase;
+  -moz-text-shadow: 0 1px rgba(0, 0, 0, .36);
+  -ms-text-shadow: 0 1px rgba(0, 0, 0, .36);
+  -o-text-shadow: 0 1px rgba(0, 0, 0, .36);
+  -webkit-text-shadow: 0 1px rgba(0, 0, 0, .36);
+  text-shadow: 0 1px rgba(0, 0, 0, .36);
+}
+body.architect .container .MainNavigation .content a.element:hover,
+body.architect .container .MainNavigation .content .current .element {
+  color: #373739;
+  text-decoration: none;
+  -moz-text-shadow: 0 1px rgba(255, 255, 255, .36);
+  -ms-text-shadow: 0 1px rgba(255, 255, 255, .36);
+  -o-text-shadow: 0 1px rgba(255, 255, 255, .36);
+  -webkit-text-shadow: 0 1px rgba(255, 255, 255, .36);
+  text-shadow: 0 1px rgba(255, 255, 255, .36);
+}
+
+/** SLOTS / SecondNavigation **/
+body.architect .container .SecondNavigation .content {
+  padding-top: 10px;
+}
+body.architect .container .SecondNavigation.lcr .content {
+  background: url(../images/hr-2.png) top center no-repeat;
+  margin-top: 30px;
+  text-align: center;
+}
+body.architect .container .SecondNavigation .content .element {
+  color: #373739;
+  font-size: 12px;
+}
+
+/** SLOTS / PoweredByPlopCMS **/
+body.architect .container .PoweredByPlopCMS .content {
+  padding-top: 5px;
+  text-align: center;
+}
+body.architect .container .PoweredByPlopCMS.r .content {
+  padding-right: 40px;
+  text-align: left;
+}
+body.architect .container .PoweredByPlopCMS .content a {
+  background: none;
+  border: none;
+  color: #373739;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+/** SLOTS / GoogleMaps **/
+body.architect .container .GoogleMaps .content .GoogleMaps_wrapper {
+  -moz-box-shadow: 0 0 2px #000;
+  -ms-box-shadow: 0 0 2px #000;
+  -o-box-shadow: 0 0 2px #000;
+  -webkit-box-shadow: 0 0 2px #000;
+  box-shadow: 0 0 2px #000;
+  height: 300px;
+}
+
+
+
+
+

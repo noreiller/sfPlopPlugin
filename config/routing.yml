@@ -1,0 +1,248 @@
+# Shortcut pages
+sf_plop_register_shortcut:
+  url: /register
+  param: { module: sfPlopCMS, action: registerShortcut }
+
+# Dynamic pages
+sf_plop_homepage:
+  url: /plop/:sf_culture/index
+  param: { module: sfPlopCMS, action: index }
+
+sf_plop_homepage_culture_slash:
+  url: /:sf_culture/
+  param: { module: sfPlopCMS, action: index }
+
+sf_plop_homepage_culture:
+  url: /:sf_culture
+  param: { module: sfPlopCMS, action: index }
+
+sf_plop_page_show:
+  url: /:sf_culture/:slug
+  param: { module: sfPlopCMS, action: show }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopPage
+    type: object
+
+# Custom pages
+sf_plop_sitemap_xml:
+  url: /sitemap.xml
+  param: { module: sfPlopCMS, action: sitemap }
+
+sf_plop_stylesheet_css:
+  url: /stylesheet.css
+  param: { module: sfPlopCMS, action: stylesheet }
+
+sf_plop_register:
+  url: /plop/:sf_culture/register
+  param: { module: sfPlopCMS, action: register }
+  requirements:
+    sf_method: [get, post]
+
+sf_plop_unregister:
+  url: /plop/:sf_culture/unregister
+  param: { module: sfPlopCMS, action: unregister }
+
+sf_plop_signin:
+  url: /plop/:sf_culture/login
+  param: { module: sfPlopCMS, action: signin }
+  requirements:
+    sf_method: [get, post]
+
+sf_plop_signout:
+  url: /plop/:sf_culture/logout
+  param: { module: sfGuardAuth, action: signout }
+
+sf_plop_profile_theme:
+  url: /plop/:sf_culture/profile/theme
+  param: { module: sfPlopCMS, action: profileTheme }
+
+sf_plop_contact:
+  url: /plop/:sf_culture/contact
+  param: { module: sfPlopCMS, action: contact }
+
+sf_plop_ws_config:
+  url: /plop/:sf_culture/ws/config/*
+  param: { module: sfPlopCMS, action: wsConfig }
+
+sf_plop_ws_repository:
+  url: /plop/:sf_culture/ws/repository/*
+  param: { module: sfPlopCMS, action: wsRepository }
+
+sf_plop_theme_edit:
+  url: /plop/:sf_culture/theme/edit
+  param: { module: sfPlopCMS, action: editTheme }
+
+# Slot actions
+sf_plop_slot_toolbar:
+  url: /plop/:sf_culture/slot/toolbar/:id
+  param: { module: sfPlopCMS, action: slotToolbar }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopSlotConfig
+    type: object
+
+sf_plop_slot_edit:
+  url: /plop/:sf_culture/slot/edit/:id
+  param: { module: sfPlopCMS, action: editSlot }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopSlotConfig
+    type: object
+  requirements:
+    sf_method: [get, post]
+
+sf_plop_slot_edit_options:
+  url: /plop/:sf_culture/slot/edit-options/:id
+  param: { module: sfPlopCMS, action: editSlotOptions }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopSlot
+    type: object
+  requirements:
+    sf_method: [get, post]
+
+sf_plop_slot_toggle_publication:
+  url: /plop/:sf_culture/slot/toggle-publication/:id
+  param: { module: sfPlopCMS, action: toggleSlotPublication }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopSlot
+    type: object
+
+sf_plop_slot_toggle_edition:
+  url: /plop/:sf_culture/slot/toggle-edition/:id
+  param: { module: sfPlopCMS, action: toggleSlotEdition }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopSlot
+    type: object
+
+sf_plop_slot_move:
+  url: /plop/:sf_culture/slot/move/:id/*
+  param: { module: sfPlopCMS, action: moveSlot }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopSlot
+    type: object
+
+sf_plop_slot_reset:
+  url: /plop/:sf_culture/slot/reset/:id
+  param: { module: sfPlopCMS, action: resetSlot }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopSlotConfig
+    type: object
+
+sf_plop_slot_delete:
+  url: /plop/:sf_culture/slot/delete/:id
+  param: { module: sfPlopCMS, action: deleteSlot }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopSlot
+    type: object
+
+# Page actions
+sf_plop_page_create:
+  url: /plop/:sf_culture/page/create
+  param: { module: sfPlopCMS, action: create }
+  requirements:
+    sf_method: [get, post]
+
+sf_plop_page_copy:
+  url: /plop/:sf_culture/page/copy/:slug
+  param: { module: sfPlopCMS, action: copy }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopPage
+    type: object
+  requirements:
+    sf_method: [get, post]
+
+sf_plop_page_copy_slot:
+  url: /plop/:sf_culture/page/copy/slot/:slug/*
+  param: { module: sfPlopCMS, action: copySlot }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopPage
+    type: object
+  requirements:
+    sf_method: [get, post]
+
+sf_plop_page_edit:
+  url: /plop/:sf_culture/page/edit/:slug
+  param: { module: sfPlopCMS, action: edit }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopPage
+    type: object
+  requirements:
+    sf_method: [get, post]
+
+sf_plop_page_edit_attributes:
+  url: /plop/:sf_culture/page/attributes/edit/:slug
+  param: { module: sfPlopCMS, action: editAttributes }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopPage
+    type: object
+  requirements:
+    sf_method: [get, post]
+
+sf_plop_page_toggle_publication:
+  url: /plop/:sf_culture/page/toggle-publication/:slug
+  param: { module: sfPlopCMS, action: togglePublication }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopPage
+    type: object
+
+sf_plop_page_delete:
+  url: /plop/:sf_culture/page/delete/:slug
+  param: { module: sfPlopCMS, action: delete }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopPage
+    type: object
+
+sf_plop_page_create_slot:
+  url: /plop/:sf_culture/page/create/slot/:slug
+  param: { module: sfPlopCMS, action: createSlot }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopPage
+    type: object
+  requirements:
+    sf_method: [get, post]
+
+sf_plop_page_sort_slots:
+  url: /plop/:sf_culture/page/sort/slot/:slug
+  param: { module: sfPlopCMS, action: sortSlots }
+  class: sfPropelORMRoute
+  options:
+    model: sfPlopPage
+    type: object
+  requirements:
+    sf_method: [post]
+
+# Dashboard
+sf_plop_dashboard:
+  url: /plop/:sf_culture/dashboard/
+  param: { module: sfPlopDashboard, action: index }
+
+sf_plop_dashboard_settings:
+  url: /plop/:sf_culture/dashboard/settings/:sub/
+  param: { module: sfPlopDashboard, action: settings, sub: index }
+
+sf_plop_dashboard_themes:
+  url: /plop/:sf_culture/dashboard/themes
+  param: { module: sfPlopDashboard, action: themes }
+
+sf_plop_dashboard_empty_cache:
+  url: /plop/:sf_culture/dashboard/empty-cache
+  param: { module: sfPlopDashboard, action: emptyCache }
+
+sf_plop_dashboard_permissions:
+  url: /plop/:sf_culture/dashboard/permissions
+  param: { module: sfPlopDashboard, action: permissions }
+

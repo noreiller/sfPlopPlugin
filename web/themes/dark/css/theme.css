@@ -1,0 +1,323 @@
+/*
+    Document   : theme.css
+    Created on : 11 mars 2011, 21:10:01
+    Author     : Aurélien MANCA <aurelien.manca@gmail.com>
+    Description: Dark theme
+*/
+
+
+@font-face {
+  font-family: 'ZeroThreesRegular';
+  src: url('../fonts/zero_threes-webfont.eot');
+  src: url('../fonts/zero_threes-webfont.eot?iefix') format('eot'),
+       url('../fonts/zero_threes-webfont.woff') format('woff'),
+       url('../fonts/zero_threes-webfont.ttf') format('truetype'),
+       url('../fonts/zero_threes-webfont.svg#webfontjdbipmYi') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* LAYOUT */
+body.dark {
+  background-color: #444;
+}
+body.dark .container:before {
+  border: solid #333;
+  border-width: 2px 0 0 2px;
+  content: "";
+  height: 100%;
+  left: 25%;
+  position: absolute;
+  top: 85px;
+  width: 100%;
+  border: rgba(0,0,0,0) none;
+  background-image: 
+    -moz-linear-gradient(top, #333, #333 150px, rgba(0,0,0,0)), 
+    -moz-linear-gradient(left, #333, #333 150px, rgba(0,0,0,0)), 
+    -moz-radial-gradient(0 0, circle, #555 0px, rgba(0,0,0,0) 600px);
+  background-image: 
+    -ms-linear-gradient(top, #333, #333 150px, rgba(0,0,0,0)), 
+    -ms-linear-gradient(left, #333, #333 150px, rgba(0,0,0,0)), 
+    -ms-radial-gradient(0 0, circle, #555 0px, rgba(0,0,0,0) 600px);
+  background-image: 
+    -o-linear-gradient(top, #333, #333 150px, rgba(0,0,0,0)), 
+    -o-linear-gradient(left, #333, #333 150px, rgba(0,0,0,0)), 
+    -o-radial-gradient(0 0, circle, #555 0px, rgba(0,0,0,0) 600px);
+  background-image: 
+    -webkit-linear-gradient(top, #333, #333 150px, rgba(0,0,0,0)), 
+    -webkit-linear-gradient(left, #333, #333 150px, rgba(0,0,0,0)), 
+    -webkit-radial-gradient(0 0, circle, #555 0px, rgba(0,0,0,0) 600px);
+  background-image: 
+    linear-gradient(top, #333, #333 150px, rgba(0,0,0,0)), 
+    linear-gradient(left, #333, #333 150px, rgba(0,0,0,0)), 
+    radial-gradient(0 0, circle, #555 0px, rgba(0,0,0,0) 600px);
+  background-repeat: no-repeat;
+  background-size: 2px 100%, 100% 2px, auto;
+}
+body.dark .container:after {
+  border: solid #333;
+  border-width: 0 2px 2px 0;
+  content: "";
+  height: 85px;
+  left: -75%;
+  padding: 2px 0 0 2px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  border: rgba(0,0,0,0) none;
+  background-image: 
+    -moz-linear-gradient(bottom, #333, #333), 
+    -moz-linear-gradient(right, #333, #333 150px, rgba(0,0,0,0)), 
+    -moz-radial-gradient(100% 100%, circle, #555 0px, rgba(0,0,0,0) 600px);
+  background-image: 
+    -ms-linear-gradient(bottom, #333, #333), 
+    -ms-linear-gradient(right, #333, #333 150px, rgba(0,0,0,0)), 
+    -ms-radial-gradient(100% 100%, circle, #555 0px, rgba(0,0,0,0) 600px);
+  background-image: 
+    -o-linear-gradient(bottom, #333, #333), 
+    -o-linear-gradient(right, #333, #333 150px, rgba(0,0,0,0)), 
+    -o-radial-gradient(100% 100%, circle, #555 0px, rgba(0,0,0,0) 600px);
+  background-image: 
+    -webkit-linear-gradient(bottom, #333, #333), 
+    -webkit-linear-gradient(right, #333, #333 150px, rgba(0,0,0,0)), 
+    -webkit-radial-gradient(100% 100%, circle, #555 0px, rgba(0,0,0,0) 600px);
+  background-image: 
+    linear-gradient(bottom, #333, #333), 
+    linear-gradient(right, #333, #333 150px, rgba(0,0,0,0)), 
+    radial-gradient(100% 100%, circle, #555 0px, rgba(0,0,0,0) 600px);
+  background-position: right top, bottom right;
+  background-repeat: no-repeat;
+  background-size: 2px 100%, 100% 2px, auto;
+  z-index: -1;
+}
+
+/* COMMON CONTENT */
+body.dark .w-block {
+  color: #ebebeb;
+  font-family: 'Trebuchet MS', Verdana, sans-serif;
+  padding: 20px 20px 0;
+}
+body.dark .l .w-block {
+  text-align: right;
+}
+body.dark .w-block a {
+  color: #b3dc18;
+  text-decoration: none;
+}
+body.dark .w-block .current > a,
+body.dark .w-block a:hover,
+body.dark .w-block a:active {
+  color: #ffa500;
+}
+body.dark .w-block h1,
+body.dark .w-block h2,
+body.dark .w-block h3,
+body.dark .w-block h4,
+body.dark .w-block h5,
+body.dark .w-block h6 {
+  font-family: 'ZeroThreesRegular', 'Trebuchet MS', Verdana, sans-serif;
+  font-weight: normal;
+}
+body.dark .w-block h3 {
+  font-size: 15px;
+}
+body.dark .w-block h4 {
+  font-size: 14px;
+}
+body.dark .w-block h5 {
+  font-size: 13px;
+}
+body.dark .w-block h6 {
+  font-size: 11px;
+  font-weight: bold;
+}
+body.dark .w-block .w-form h2 {
+  font-size: 14px;
+}
+body.dark .w-block .w-form h2 strong {
+  display: block;
+  font-size: 18px;
+}
+
+/* SLOTS */
+/** SLOTS : RichText **/
+body.dark .RichText .w-block li {
+  list-style-type: circle;
+}
+body.dark .RichText .w-block img {
+  vertical-align: middle;
+}
+
+/** SLOTS : Date **/
+body.dark .Date .w-block {
+  padding-top: 5px;
+}
+
+/** SLOTS : ContactForm **/
+body.dark .ContactForm .w-block {
+  padding-top: 5px;
+}
+
+/** SLOTS : LocaleNavigation **/
+body.dark .LocaleNavigation .w-block {
+  padding: 5px 0 0;
+  text-align: right;
+}
+
+/** SLOTS : PageHeader **/
+body.dark .PageHeader .w-block {
+  padding-bottom: 15px;
+}
+body.dark .l.PageHeader .w-block {
+  padding-right: 15px;
+  padding-top: 18px;
+}
+body.dark .cr.PageHeader .w-block {
+  padding-top: 24px;
+}
+body.dark .lcr.PageHeader .w-block {
+  padding-left: 27%;
+}
+body.dark .PageHeader .w-block h1 {
+  font-size: 24px;
+}
+body.dark .PageHeader .w-block h2 {
+  font-size: 12px;
+}
+body.dark .PageHeader .w-block h2 a {
+  color: #ffa500;
+}
+
+/** SLOTS : PageTitle **/
+body.dark .PageTitle .w-block h1 {
+  border-bottom: 1px solid #555;
+  padding-bottom: 10px;
+}
+
+/** SLOTS : PoweredByPlopCMS **/
+body.dark .PoweredByPlopCMS .w-block .w-powered-button {
+  background-color: #333;
+}
+body.dark .PoweredByPlopCMS .w-block .w-powered-button em {
+  color: #000;
+}
+body.dark .PoweredByPlopCMS .w-block a.w-powered-button:hover em {
+  color: inherit;
+}
+
+/** SLOTS : MainNavigation **/
+body.dark .MainNavigation .w-block {
+  padding: 15px 20px;
+}
+body.dark .MainNavigation .w-block .w-menu li {
+  border: 0;
+  padding: 0;
+}
+body.dark .l.MainNavigation .w-block .w-menu li {
+  display: block;
+  margin: 10px 0;
+}
+body.dark .MainNavigation .w-block .w-menu li a {
+  font-family: ZeroThreesRegular, 'Trebuchet MS', Verdana, sans-serif;
+  font-size: 20px;
+  display: block;
+  padding: 5px;
+}
+body.dark .l.MainNavigation .w-block .w-menu li a {
+  padding: 5px 0;
+}
+body.dark .MainNavigation .w-block .w-menu li a strong {
+  font-weight: normal;
+}
+
+/** SLOTS : AssetGallery **/
+body.dark .AssetGallery .w-block {
+  padding-top: 18px;
+}
+body.dark .AssetGallery .w-block .w-gallery-contents {
+  -moz-box-shadow: 0 0 10px #111;
+  -ms-box-shadow: 0 0 10px #111;
+  -o-box-shadow: 0 0 10px #111;
+  -webkit-box-shadow: 0 0 10px #111;
+  box-shadow: 0 0 10px #111;
+}
+body.dark .AssetGallery .w-block .w-gallery-content-img {
+  cursor: pointer;
+  display: block;
+  height: 382px;
+  width: 680px;
+}
+body.dark .AssetGallery .w-block .w-gallery-content .w-gallery-content-legend {
+  background-color: #333;
+}
+body.dark .AssetGallery .w-block .w-gallery-content-legend {
+  padding: 10px;
+}
+body.dark .AssetGallery .w-block .w-gallery-menu {
+  display: inline-block;
+  margin-top: 10px;
+}
+body.dark .AssetGallery .w-block .w-gallery-menu.w-gallery-menu-thumbs li {
+  border: 0;
+  opacity: .2;
+  -moz-opacity: .2;
+  filter:alpha(opacity=20);
+  padding: 0;
+}
+body.dark .AssetGallery .w-block .w-gallery-menu.w-gallery-menu-thumbs li:hover {
+  opacity: .5;
+  -moz-opacity: .5;
+  filter:alpha(opacity=50);
+}
+body.dark .AssetGallery .w-block .w-gallery-menu.w-gallery-menu-thumbs li.current {
+  opacity: 1;
+  -moz-opacity: 1;
+  filter:alpha(opacity=100);
+}
+body.dark .AssetGallery .w-block .w-gallery-menu.w-gallery-menu-thumbs img {
+  -moz-box-shadow: 0 0 5px #111;
+  -ms-box-shadow: 0 0 5px #111;
+  -o-box-shadow: 0 0 5px #111;
+  -webkit-box-shadow: 0 0 5px #111;
+  box-shadow: 0 0 5px #111;
+}
+body.dark .AssetGallery .w-block .w-gallery-prev,
+body.dark .AssetGallery .w-block .w-gallery-next {
+  display: inline-block;
+  font-size: 30px;
+  height: 30px;
+  line-height: 100%;
+  margin: 10px 0;
+  padding: 0 10%;
+  text-align: right;
+  top: 0;
+  width: 29.5%;
+}
+body.dark .AssetGallery .w-block .w-gallery-next {
+  text-align: left;
+}
+
+/* CUSTOM */
+/** CUSTOM : root page **/
+body.dark.root .container:before {
+  background-image: 
+    -moz-linear-gradient(top, #333, #333 150px, rgba(0,0,0,0)), 
+    -moz-linear-gradient(left, #333, #333 150px, rgba(0,0,0,0)), 
+    -moz-radial-gradient(0 0, circle, #555 0px, rgba(0,0,0,0) 475px);
+  background-image: 
+    -ms-linear-gradient(top, #333, #333 150px, rgba(0,0,0,0)), 
+    -ms-linear-gradient(left, #333, #333 150px, rgba(0,0,0,0)), 
+    -ms-radial-gradient(0 0, circle, #555 0px, rgba(0,0,0,0) 475px);
+  background-image: 
+    -o-linear-gradient(top, #333, #333 150px, rgba(0,0,0,0)), 
+    -o-linear-gradient(left, #333, #333 150px, rgba(0,0,0,0)), 
+    -o-radial-gradient(0 0, circle, #555 0px, rgba(0,0,0,0) 475px);
+  background-image: 
+    -webkit-linear-gradient(top, #333, #333 150px, rgba(0,0,0,0)), 
+    -webkit-linear-gradient(left, #333, #333 150px, rgba(0,0,0,0)), 
+    -webkit-radial-gradient(0 0, circle, #555 0px, rgba(0,0,0,0) 475px);
+  background-image: 
+    linear-gradient(top, #333, #333 150px, rgba(0,0,0,0)), 
+    linear-gradient(left, #333, #333 150px, rgba(0,0,0,0)), 
+    radial-gradient(0 0, circle, #555 0px, rgba(0,0,0,0) 475px);
+}

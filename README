@@ -1,0 +1,99 @@
+sfPlopPlugin
+
+Enable the plugins and dependencies in the ProjectConfiguration, note that
+the ORM plugin must be the first one :
+
+$this->enablePlugins(array(
+  'sfPropelORMPlugin',
+  'sfAssetsGalleryPlugin',
+  'sfAssetsLibraryPlugin',
+  'sfGuardPlugin',
+  'sfGuardProfilePlugin',
+  'sfPlopPlugin',
+  'sfThumbnailPlugin'
+));
+
+Tweak the settings.yml of the application with the following settings :
+
+default_culture:        fr
+i18n:                   true
+js_debug:               false # Add yahoo profiling and other tools to profile and debug javascript.
+standard_helpers:       [Cache, Date, I18N, Partial, Text, sfPlop]
+enabled_modules:        [default, sfGuardAuth, sfGuardUser, sfPlopCMS, sfAsset, sfAssetGallery]
+login_module:           sfPlopCMS
+login_action:           signin
+secure_module:          sfGuardAuth
+secure_action:          secure
+error_404_module:       sfPlopCMS
+error_404_action:       error404
+
+
+AUTOMATIC INSTALLATION
+* run plugins/sfPlopPlugin/config/install.sh
+* edit the "config/databases.yml" and "config/propel.ini" to set your settings
+* run plugins/sfPlopPlugin/config/build.sh
+
+MANUAL INSTALLATION
+
+For your installation, you must copy and remove the ".sample" extension of
+the following files :
+
+* config/ProjectConfiguration.class.sample
+* apps/frontend/config/frontendConfiguration.class.sample
+* apps/frontend/config/app.yml.sample
+* apps/frontend/config/settings.yml.sample
+* apps/frontend/config/filters.yml.sample
+* config/databases.yml.sample
+* config/propel.ini.sample
+* config/properties.ini.sample
+
+
+To have default, fixtures, you can use the samples by copying in the
+"data/fixtures" directory the following fixtures (use different file names and 
+keep the following order, for example you can use number prefixes) :
+
+* plugins/sfGuardPlugin/data/fixtures/fixtures.yml.sample
+* plugins/sfGuardProfilePlugin/data/fixtures/fixtures.yml.sample
+* plugins/sfPlopPlugin/data/fixtures/fixtures.yml.sample
+* plugins/sfAssetsGalleryPlugin/data/fixtures/fixtures.yml.sample
+
+
+Next, you should execute the following taks :
+
+* ./symfony plugin:publish-assets
+* ./symfony project:permissions (maybe requires root privileges)
+* ./symfony propel:build-all --no-confirmation
+* ./symfony propel:data-load
+* ./symfony cc
+* ./symfony asset:create-root
+* chmod -R 777 ./web/media/
+
+
+To get your routing working, you can link the "/" url (the homepage) to
+"sfPlopCMS" module and "index" action. You can also choose another route
+in order to keep your application compatibility.
+
+
+To deploy on your production instance, the must create 2 copies of the
+following files using the suffixes ".local" and ".production" (".preprod"
+is also handled) and use the good one once deployed :
+
+* config/database.yml
+* config/propel.ini
+* web/.htaccess
+
+
+More info on this sandbox :
+
+* Symfony 1.4
+* Propel 1.6
+* jQuery 1.6 and jQueryUI 1.8.13
+* Aloha Editor 0.10
+* HTML5boilerplate
+
+
+Symfony plugins dependencies :
+
+* sfGuardPlugin
+* sfAssetsLibraryPlugin
+* sfPropelORMPlugin upgraded to version 1.6

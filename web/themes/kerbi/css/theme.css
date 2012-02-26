@@ -1,0 +1,227 @@
+/*
+    Document   : theme.css
+    Created on : 02 january 2012, 15:45:01
+    Author     : Aurélien MANCA <aurelien.manca@gmail.com>
+    Description: kerbi
+*/
+
+/* LAYOUT */
+body.kerbi {
+  background-color: #666;
+}
+body.kerbi .container {
+  padding-top: 20px;
+}
+body.kerbi .container .content {
+  padding: 0 10px;
+}
+body.kerbi .container .ml .content,
+body.kerbi .container .lcr .content,
+body.kerbi .container .lc .content,
+body.kerbi .container .l .content {
+  padding-left: 30px;
+}
+body.kerbi .container .mr .content,
+body.kerbi .container .lcr .content,
+body.kerbi .container .cr .content,
+body.kerbi .container .r .content {
+  padding-right: 30px;
+}
+
+body.kerbi .container .section.MainNavigation + .section.Area + .section .content,
+body.kerbi .container .section.MainNavigation + .section .content {
+  margin: 20px 0;
+}
+
+/* CONTENT **/
+/** CONTENT / text **/
+body.kerbi .container .section .content {
+  color: #222;
+  font-family: 'Kreon', serif;
+  font-size: 16px;
+  -moz-text-shadow: 1px 1px #777;
+  -ms-text-shadow: 1px 1px #777;
+  -o-text-shadow: 1px 1px #777;
+  -webkit-text-shadow: 1px 1px #777;
+  text-shadow: 1px 1px #777;
+}
+/** Common content : links **/
+body.kerbi .container .section .content .w-gallery a,
+body.kerbi .container .section .content .w-menu a,
+body.kerbi .container .section > .RichText a {
+  color: #111;
+}
+body.kerbi .container .section .content .w-menu a:hover,
+body.kerbi .container .section > .RichText a:hover {
+  color: #000;
+}
+
+/** CONTENT : titles **/
+body.kerbi .container .section > .RichText h1,
+body.kerbi .container .section > .RichText h2,
+body.kerbi .container .section > .RichText h3 {
+  font-family: "Carter One", sans-serif;
+  font-weight: normal;
+}
+body.kerbi .container .section > .RichText h1 {
+  font-size: 22px;
+}
+body.kerbi .container .section > .RichText h2 {
+  font-size: 18px;
+}
+body.kerbi .container .section > .RichText h3 {
+  font-size: 14px;
+}
+
+/** CONTENT / menus **/
+body.kerbi .container .section .content ul.w-menu > li {
+  border-left-color: #444;
+}
+
+/** CONTENT / galleries **/
+body.kerbi .container .section .content .w-gallery-content-img {
+  display: block;
+  margin: 10px 0;
+}
+body.kerbi .container .section .content .w-gallery-content-img,
+body.kerbi .container .section.lcr .content .w-gallery-menu img {
+  border: 1px solid #333;
+  box-shadow: 0 0 10px #333;
+}
+body.kerbi .container .section .content .w-gallery img {
+  position: relative;
+  max-width: 95%;
+}
+body.kerbi .container .section .content .w-gallery-prev,
+body.kerbi .container .section .content .w-gallery-next,
+body.kerbi .container .section .content .w-gallery-menu {
+  padding: 10px;
+}
+body.kerbi .container .section .content a.w-gallery-prev,
+body.kerbi .container .section .content a.w-gallery-next,
+body.kerbi .container .section .content .w-gallery-menu a {
+  text-decoration: none;
+}
+body.kerbi .container .section .content .w-gallery-menu a {
+  display: block;
+  width: 64px;
+}
+/*** CONTENT / galleries / layouts ***/
+body.kerbi .container .section.cr .content .w-gallery,
+body.kerbi .container .section.cr .content .w-gallery-content,
+body.kerbi .container .section.lcr .content .w-gallery-content {
+  width: 690px;
+}
+body.kerbi .container .section.lcr .content .w-gallery-contents {
+  width: 780px;
+  padding-left: 220px;
+}
+body.kerbi .container .section.cr .content .w-gallery-content {
+  padding: 10px;
+}
+body.kerbi .container .section.lcr .content .w-gallery-prev,
+body.kerbi .container .section.lcr .content .w-gallery-next,
+body.kerbi .container .section.lcr .content .w-gallery-menu {
+  position: absolute;
+}
+body.kerbi .container .section.lcr .content .w-gallery-prev,
+body.kerbi .container .section.lcr .content .w-gallery-next {
+  top: 0;
+}
+body.kerbi .container .section.lcr .content .w-gallery-prev {
+  left: 75px;
+}
+body.kerbi .container .section.lcr .content .w-gallery-next {
+  left: 104px;
+}
+body.kerbi .container .section.lcr .content .w-gallery-menu {
+  left: 0;
+  text-align: center;
+  top: 0;
+  width: 200px;
+}
+body.kerbi .container .section.lcr .content .w-gallery-next + .w-gallery-menu {
+  top: 30px;
+}
+body.kerbi .container .section.lcr .content .w-gallery-menu li {
+  border: none;
+  padding: 0;
+}
+body.kerbi .container .section.lcr .content .w-gallery-menu a {
+  padding: 0 10px 10px 0;
+}
+body.kerbi .container .section.lcr .content .w-gallery-menu img {
+  opacity: .25;
+  filter: alpha(opacity=25);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=25)";
+}
+body.kerbi .container .section.lcr .content .w-gallery-menu .current img {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+
+/* SLOTS */
+/** SLOTS / PageHeader **/
+body.kerbi .container .PageHeader .content {
+  text-align: center;
+}
+body.kerbi .container .PageHeader .content h1 {
+  font-size: 34px;
+  line-height: 32px;
+}
+body.kerbi .container .PageHeader .content,
+body.kerbi .container .PageHeader .content a {
+}
+
+/** SLOTS / PoweredByPlopCMS **/
+body.kerbi .container .PoweredByPlopCMS .content {
+  margin-top: 50px;
+  text-align: left;
+}
+body.kerbi .container .PoweredByPlopCMS .content a.w-powered-button {
+  background-color: #777;
+  border-color: #888;
+  color: #111;
+}
+
+/** SLOTS / SecondNavigation **/
+body.kerbi .container .SecondNavigation .content {
+  margin-top: 50px;
+  padding-top: 2px;
+  text-align: right;
+}
+body.kerbi .container .SecondNavigation .content .element {
+  font-size: 11px;
+  font-style: italic;
+  text-decoration: none;
+}
+
+
+/** SLOTS / MainNavigation **/
+body.kerbi .container .MainNavigation .content {
+  padding-left: 0;
+}
+body.kerbi .container .MainNavigation .content .w-menu > li {
+  margin-bottom: 10px;
+  padding: 0;
+}
+body.kerbi .container .MainNavigation.l .content .w-menu li,
+body.kerbi .container .MainNavigation.r .content .w-menu li,
+body.kerbi .container .MainNavigation .content .w-menu .element {
+  display: block;
+}
+body.kerbi .container .MainNavigation .content .w-menu .element {
+  font-family: 'Carter One', sans-serif;
+  font-size: 18px;
+  padding: 5px 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+body.kerbi .container .MainNavigation .content .w-menu .current .element {
+  color: #000;
+}
+body.kerbi .container .MainNavigation .content .w-menu .element strong {
+  font-weight: normal;
+}

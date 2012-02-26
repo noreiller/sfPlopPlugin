@@ -1,0 +1,9 @@
+all:
+  layout: %SF_ROOT_DIR%/plugins/sfPlopPlugin/modules/sfPlopCMS/templates/layout
+  javascripts:
+    - /sfPlopPlugin/js/all.min.js
+    - /sfPlopPlugin/js/admin.js
+  stylesheets:
+    - /sfPlopPlugin/css/all.min.css
+    - /sfPlopPlugin/vendor/jquery/css/black-tie/jquery-ui-1.8.17.css
+    - /sfPlopPlugin/css/admin.css

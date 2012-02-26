@@ -1,0 +1,1 @@
+<?php echo __('The block has been deleted.', '', 'plopAdmin') ?>

@@ -1,0 +1,1 @@
+<?php echo __('The page has been created.') ?>

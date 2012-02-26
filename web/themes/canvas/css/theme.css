@@ -1,0 +1,272 @@
+/*
+    Document   : theme.css
+    Created on : 31 mars 2011, 15:10:01
+    Author     : Aurélien MANCA <aurelien.manca@gmail.com>
+    Description: canvas
+*/
+
+body.canvas .l { width: 26%; }
+body.canvas .c { width: 37%; }
+body.canvas .r { width: 37%; }
+body.canvas .lc { width: 63%; }
+body.canvas .cr { width: 74%; }
+
+html.ie8,
+body.canvas {
+  background: #aaa url(../images/bg-medium3.png) repeat 0 0;
+}
+body.canvas .container {
+  background: #ddd url(../images/bg-light3.png) repeat 0 0;
+  box-shadow: 5px 0 20px rgba(0,0,0, .25);
+  -khtml-box-shadow: 5px 0 20px rgba(0,0,0, .25);
+  -moz-box-shadow: 5px 0 20px rgba(0,0,0, .25);
+  -o-box-shadow: 5px 0 20px rgba(0,0,0, .25);
+  -webkit-box-shadow: 5px 0 20px rgba(0,0,0, .25);
+  min-height: 500px;
+  margin: 20px auto;
+  padding: 40px;
+  width: 880px;
+}
+
+/* COMMON CONTENT */
+body.canvas .container .section .content {
+  color: #696969;
+  font-family: Verdana, Arial, Helvetica, serif;
+  font-size: 12px;
+}
+body.canvas .container .section .content a {
+  color: #696969;
+  text-decoration: none;
+}
+body.canvas .container .section .content a:hover {
+  color: #329ba6;
+}
+body.canvas .section .RichText b,
+body.canvas .section .RichText strong {
+  color: #329ba6;
+  font-weight: normal;
+}
+body.canvas .section .RichText p {
+  padding-bottom: 0;
+}
+
+/** COMMON CONTENT / titles **/
+body.canvas .section .RichText h1 {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+body.canvas .section .RichText h2 {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+body.canvas .section .RichText h3 {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* SLOTS */
+/** SLOTS / RichText **/
+body.canvas .RichText .content {
+  box-shadow: 3px 3px 10px rgba(0,0,0, .25) inset;
+  -khtml-box-shadow: 3px 3px 10px rgba(0,0,0, .25) inset;
+  -moz-box-shadow: 3px 3px 10px rgba(0,0,0, .25) inset;
+  -o-box-shadow: 3px 3px 10px rgba(0,0,0, .25) inset;
+  -webkit-box-shadow: 3px 3px 10px rgba(0,0,0, .25) inset;
+  margin: 20px 20px 0;
+  padding: 30px;
+}
+body.canvas .lcr.RichText .content,
+body.canvas .r.RichText .content,
+body.canvas .mr.RichText .content,
+body.canvas .cr.RichText .content {
+  margin-right: 0;
+}
+body.canvas .l.RichText .content {
+  box-shadow: none;
+  -khtml-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  -webkit-box-shadow: none;
+  margin: 0;
+  padding: 5px 0;
+}
+
+/* LocaleNavigation */
+body.canvas .container .LocaleNavigation .content {
+  text-align: right;
+  text-transform: uppercase;
+}
+body.canvas .section.LocaleNavigation .content {
+  font-size: 11px;
+}
+body.canvas .LocaleNavigation .content ul.w-menu > li {
+  border-top: 1px solid transparent;
+  padding-top: 5px;
+}
+body.canvas .LocaleNavigation .content ul.w-menu > li:first-child {
+  border-top-color: #329ba6;
+}
+body.canvas .LocaleNavigation .content ul.w-menu .element strong {
+  font-weight: normal;
+}
+body.canvas .LocaleNavigation .content ul.w-menu > li {
+  border-left: none;
+}
+
+/* PageHeader */
+body.canvas .container .PageHeader .content h1 {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+/* PageTitle */
+body.canvas .container .PageTitle .content {
+  padding-left: 20px;
+  padding-top: 25px;
+}
+body.canvas .container .PageTitle .content h1 {
+  font-size: 30px;
+  font-weight: normal;
+  -moz-text-shadow: 0 1px #aaa, 1px 0 #aaa, 0 0 10px #999;
+  -ms-text-shadow: 0 1px #aaa, 1px 0 #aaa, 0 0 10px #999;
+  -o-text-shadow: 0 1px #aaa, 1px 0 #aaa, 0 0 10px #999;
+  -webkit-text-shadow: 0 1px #aaa, 1px 0 #aaa, 0 0 10px #999;
+  text-shadow: 0 1px #aaa, 1px 0 #aaa, 0 0 10px #999;
+}
+body.canvas .container .PageTitle .content h1:before {
+  content: "/";
+  padding-right: 10px;
+}
+
+/* PageFooter */
+body.canvas .container .PageFooter .content {
+    padding-top: 35px;
+}
+
+/* MainNavigation */
+body.canvas .container .MainNavigation .content {
+  min-height: 365px;
+  padding-top: 80px;
+  text-transform: uppercase;
+}
+body.canvas .MainNavigation .content ul.w-menu > li {
+  border-left: none;
+  display: block;
+  padding: 0;
+}
+body.canvas .MainNavigation .content ul.w-menu > li .element {
+  display: block;
+  padding: 3px 0;
+  white-space: nowrap;
+}
+body.canvas .MainNavigation .content ul.w-menu .element strong {
+  font-weight: normal;
+}
+body.canvas .MainNavigation .content ul.w-menu li.current > .element,
+body.canvas .MainNavigation .content ul.w-menu li:hover > .element {
+  color: #329ba6;
+}
+body.canvas .MainNavigation .content ul.w-menu ul {
+  display: none;
+  padding: 5px 10px 15px;
+}
+body.canvas .MainNavigation .content ul.w-menu ul li a {
+  padding: 0 0 0 5px;
+  position: relative;
+}
+body.canvas .MainNavigation .content ul.w-menu ul li a:before {
+  content: ":";
+  display: block;
+  font-weight: bold;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+body.canvas .MainNavigation .content ul.w-menu li:hover > ul {
+/*  display: block;*/
+}
+
+/* AssetGallery, w-gallery, w-slider */
+body.canvas .AssetGallery .content {
+  height: 500px;
+}
+body.canvas .w-gallery {
+  height: 100%;
+}
+body.canvas .w-gallery .slides_control,
+body.canvas .w-gallery .w-gallery-content {
+  height: 440px;
+}
+body.canvas .cr.AssetGallery .w-gallery .w-gallery-contents,
+body.canvas .cr.AssetGallery .w-gallery .w-gallery-content {
+  width: 650px;
+}
+body.canvas .w-gallery .w-gallery-content {
+  line-height: 440px;
+  text-align: center;
+}
+body.canvas .w-gallery .w-gallery-content .w-gallery-content-img,
+body.canvas .w-gallery .w-gallery-content .w-gallery-content-legend {
+}
+body.canvas .w-gallery .w-gallery-content .w-gallery-content-img {
+  vertical-align: top;
+}
+body.canvas .container .section .content .w-gallery img {
+  position: relative;
+  width: 95%;
+}
+body.canvas .w-gallery .w-gallery-content .w-gallery-content-legend {
+  border-top: 1px solid #329ba6;
+  bottom: 0;
+  display: inline-block;
+  font-size: 10px;
+  line-height: 10px;
+  right: 22px;
+  padding: 5px 0;
+  position: absolute;
+  text-align: right;
+}
+body.canvas .w-gallery .w-gallery-content .w-gallery-content-legend quote {
+  white-space: pre;
+}
+body.canvas .container .section.AssetGallery .content .w-menu a {
+  display: block;
+  width: 64px;
+}
+body.canvas .w-slider {
+  bottom: 0;
+  position: absolute;
+}
+body.canvas .cr.AssetGallery .w-slider {
+  padding: 0 22px;
+  width: 606px;
+}
+body.canvas .w-slider .w-slider-prev {
+  background-image: url("../images/left.png");
+}
+body.canvas .w-slider .w-slider-next {
+  background-image: url("../images/right.png");
+}
+body.canvas .w-slider .w-slider-container .w-menu li {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=25)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=25);
+  opacity: .25;
+}
+body.canvas .w-slider .w-slider-container .w-menu li.current {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=100)";
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  opacity: 1;
+}
+body.canvas .w-slider .w-slider-container .w-menu li a {
+  outline: 0;
+  position: relative;
+  width: 101px;
+}
+body.canvas .w-slider .w-slider-container .w-menu a img {
+  display: block;
+  height: 41px;
+  width: 100px;
+}

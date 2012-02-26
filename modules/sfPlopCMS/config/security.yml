@@ -1,0 +1,27 @@
+all:
+  is_secure: true
+
+index:
+  is_secure: false
+
+show:
+  is_secure: false
+
+registerShortcut:
+  is_secure: false
+
+register:
+  is_secure: false
+
+signin:
+  is_secure: false
+
+contact:
+  is_secure: false
+
+error404:
+  is_secure: false
+
+sitemap:
+  is_secure: false
+

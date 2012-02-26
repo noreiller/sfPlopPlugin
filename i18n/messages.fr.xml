@@ -1,0 +1,452 @@
+<?xml version="1.0" ?>
+<xliff version="1.0">
+  <file original="global" source-language="fr_FR" datatype="plaintext" date="2011-03-04T11:53:19Z">
+    <body>
+      <trans-unit>
+        <source>January</source>
+        <target>Janvier</target>
+      </trans-unit>
+      <trans-unit>
+        <source>February</source>
+        <target>Février</target>
+      </trans-unit>
+      <trans-unit>
+        <source>March</source>
+        <target>Mars</target>
+      </trans-unit>
+      <trans-unit>
+        <source>April</source>
+        <target>Avril</target>
+      </trans-unit>
+      <trans-unit>
+        <source>May</source>
+        <target>Mai</target>
+      </trans-unit>
+      <trans-unit>
+        <source>June</source>
+        <target>Juin</target>
+      </trans-unit>
+      <trans-unit>
+        <source>July</source>
+        <target>Juillet</target>
+      </trans-unit>
+      <trans-unit>
+        <source>August</source>
+        <target>Août</target>
+      </trans-unit>
+      <trans-unit>
+        <source>September</source>
+        <target>Septembre</target>
+      </trans-unit>
+      <trans-unit>
+        <source>October</source>
+        <target>Octobre</target>
+      </trans-unit>
+      <trans-unit>
+        <source>November</source>
+        <target>Novembre</target>
+      </trans-unit>
+      <trans-unit>
+        <source>December</source>
+        <target>Décembre</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Mon</source>
+        <target>Lun</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Tue</source>
+        <target>Mar</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Wed</source>
+        <target>Mer</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Thu</source>
+        <target>Jeu</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Fri</source>
+        <target>Ven</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Sat</source>
+        <target>Sam</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Sun</source>
+        <target>Dim</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Your name</source>
+        <target>Votre nom</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Your email</source>
+        <target>Votre courriel</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Your message</source>
+        <target>Votre message</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Your recipient</source>
+        <target>Votre destinataire</target>
+      </trans-unit>
+      <trans-unit>
+        <source>send</source>
+        <target>envoyer</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Send</source>
+        <target>Envoyer</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Send another message</source>
+        <target>Envoyer un autre message</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Please enter a name.</source>
+        <target>Veuillez indiquer un nom.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>This field is too short (3 characters minimum).</source>
+        <target>Ce champ est trop court (3 caractères minimum).</target>
+      </trans-unit>
+      <trans-unit>
+        <source>This field is too long (100 characters maximum).</source>
+        <target>Ce champ est trop long (100 caractères minimum).</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Please enter an email.</source>
+        <target>Veuillez indiquer un courriel.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>This email address is invalid (example: name@domain.ext).</source>
+        <target>Cet email est invalide (exemple: nom@domaine.ext).</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Please enter a message.</source>
+        <target>Veuillez indiquer un message.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>This field is too short (10 characters minimum).</source>
+        <target>Ce champ est trop court (10 caractères minimum).</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The datas you indicated seem to be wrong. Please verify them and validate again.</source>
+        <target>Les données que vous avez indiquées semblent incorrectes. Veuillez les vérifier et revalider svp.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Your message has been sent. Thank you.</source>
+        <target>Votre message a bien été envoyé. Merci.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Your message has not been sent due to an internal error. Sorry.</source>
+        <target>Votre message n'a pas été envoyé suite à une erreur interne. Désolé.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>An error occured during the sending, please try again.</source>
+        <target>Une erreur a eu lieu pendant l'envoi. Veuillez recommencer svp.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Username</source>
+        <target>Nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit>
+        <source>username</source>
+        <target>nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit>
+        <source>password</source>
+        <target>mot de passe</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Remember</source>
+        <target>Mémoriser</target>
+      </trans-unit>
+      <trans-unit>
+        <source>sign in</source>
+        <target>se connecter</target>
+      </trans-unit>
+      <trans-unit>
+        <source>You are logged as "%u%".</source>
+        <target>Vous êtes connecté en tant que "%u%".</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Please enter a username.</source>
+        <target>Veuillez indiquer un nom d'utilisateur.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Please enter a password.</source>
+        <target>Veuillez indiquer un mot de passe.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>You are here</source>
+        <target>Vous êtes ici</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Receive a copy of the message by email ?</source>
+        <target>Recevoir une copie du message par email ?</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Sign in</source>
+        <target>S'identifier</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Error %%error%%</source>
+        <target>Erreur %%error%%</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Page not found !</source>
+        <target>Page non trouvée !</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Back to previous page</source>
+        <target>Revenir à la page précédente</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Go to homepage</source>
+        <target>Aller à la page d'accueil</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Gallery list</source>
+        <target>Liste des galeries</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Zoom</source>
+        <target>Zoom</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Previous month</source>
+        <target>Mois précédent</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Next month</source>
+        <target>Mois suivant</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Move left</source>
+        <target>Déplacer vers la gauche</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Move right</source>
+        <target>Déplacer vers la droite</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Ouhla!</source>
+        <target>Ouhla!</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The page you requested does not exist...</source>
+        <target>La page que vous avez demandé n'existe pas...</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Error code : 404 (page not found).</source>
+        <target>Code d'erreur : 404 (page non trouvée).</target>
+      </trans-unit>
+      <trans-unit>
+        <source>It may be that the link you used is no longer valid</source>
+        <target>Il se peut que le lien que vous avez utilisé ne soit plus valable</target>
+      </trans-unit>
+      <trans-unit>
+        <source>or that you have typed the address (URL) incorrectly.</source>
+        <target>ou que vous ayez tapé l'adresse (URL) incorrectement.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Go back to homepage</source>
+        <target>Revenir à la page d'accueil</target>
+      </trans-unit>
+      <trans-unit>
+        <source>login</source>
+        <target>connexion</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Logout</source>
+        <target>Se déconnecter</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Login!</source>
+        <target>Connexion!</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Login</source>
+        <target>Se connecter</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Register!</source>
+        <target>Inscrivez-vous!</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Register</source>
+        <target>S'inscrire</target>
+      </trans-unit>
+      <trans-unit>
+        <source>registration</source>
+        <target>inscription</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Please complete the fields below :</source>
+        <target>Veuillez remplir les champs ci-dessous :</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Username :</source>
+        <target>Nom d'utilisateur :</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Password :</source>
+        <target>Mot de passe :</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Username or password is not valid.</source>
+        <target>Le nom d'utilisateur ou le mot de passe n'est pas valide.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Filter by</source>
+        <target>Filtrer par</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Contact form</source>
+        <target>Formulaire de contact</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Sorry!</source>
+        <target>Désolé!</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The website is temporarly unavailable...</source>
+        <target>Le site est temporairement indisponible...</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The site is currently being updated, try again a little bit later, thank you for your understanding.</source>
+        <target>Le site est en cours de mise à jour ou de maintenance, réessayer un peu plus tard, merci de votre compréhension.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>unavailable</source>
+        <target>indisponible</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Loading</source>
+        <target>Chargement</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Invalid.</source>
+        <target>Invalide.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Required.</source>
+        <target>Requis.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Password again</source>
+        <target>Mot de passe bis</target>
+      </trans-unit>
+      <trans-unit>
+        <source>First name</source>
+        <target>Prénom</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Last name</source>
+        <target>Nom</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Culture</source>
+        <target>Langue</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Email</source>
+        <target>Courriel</target>
+      </trans-unit>
+      <trans-unit>
+        <source>submit</source>
+        <target>soumettre</target>
+      </trans-unit>
+      <trans-unit>
+        <source>You don't have the required permission to access this page.</source>
+        <target>Vous n'avez pas les autorisations nécessaires pour accéder à cette page.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>You don't have the required permission to access this page.</source>
+        <target>Vous n'avez pas les autorisations nécessaires pour accéder à cette page.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Error code : 403 (forbidden).</source>
+        <target>Code d'erreur : 403 (interdit)</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The page you requested is protected...</source>
+        <target>La page que vous avez demandé est protégée...</target>
+      </trans-unit>
+      <trans-unit>
+        <source>It seems that you have not the required credentials to access this page</source>
+        <target>Il semble que vous n'avez pas les autorisations nécessaires pour accéder à cette page.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>security</source>
+        <target>sécurité</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Security</source>
+        <target>Sécurité</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The username and/or password is invalid.</source>
+        <target>L'identifant et/ou le mot de passe est invalide.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Blog comments powered by</source>
+        <target>Système de commentaires propulsé par</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Please enable JavaScript to view the</source>
+        <target>Veuillez activer JavaScript pour visualiser les</target>
+      </trans-unit>
+      <trans-unit>
+        <source>comments powered by</source>
+        <target>commentaires propulsés par</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Comments</source>
+        <target>Commentaires</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Powered by plop-cms</source>
+        <target>Propulsé par plop-cms</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Powered by %s</source>
+        <target>Propulsé par %s</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Error 404</source>
+        <target>Erreur 404</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Profile</source>
+        <target>Profil</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Login</source>
+        <target>Connexion</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Theme switcher</source>
+        <target>Changeur de thème</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Change the theme of the page by choosing another one</source>
+        <target>Changez le thème de la page en en choisissant un autre</target>
+      </trans-unit>
+<!--      <trans-unit>
+        <source></source>
+        <target></target>
+      </trans-unit>-->
+
+    </body>
+  </file>
+</xliff>

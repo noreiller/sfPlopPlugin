@@ -1,0 +1,294 @@
+/*
+    Document   : theme.css
+    Created on : 11 mars 2011, 21:10:01
+    Author     : Aurélien MANCA <aurelien.manca@gmail.com>
+    Description:
+        metal theme of the Plop CMS demo.
+*/
+
+/* Layout */
+body.metal .section.l { width: 23%; }
+body.metal .section.r { width: 27%; }
+body.metal .section.lc { width: 73%; }
+body.metal .section.cr { width: 77%; }
+
+body.metal .ml .content,
+body.metal .lcr .content,
+body.metal .lc .content,
+body.metal .l .content {
+  padding-left: 10px;
+}
+body.metal .mr .content,
+body.metal .lcr .content,
+body.metal .cr .content,
+body.metal .r .content {
+  padding-right: 10px;
+}
+
+/* Content */
+body.metal {
+  background-image: -moz-linear-gradient(top, #a4a4a4 0, #fff 375px);
+  background-image: -o-linear-gradient(top, #a4a4a4 0, #fff 375px);
+  background-image: -webkit-linear-gradient(top, #a4a4a4 0, #fff 375px);
+  background-image: linear-gradient(top, #a4a4a4 0, #fff 375px);
+  background-position: 0 0;
+  background-repeat: repeat-x;
+}
+body.metal .container {
+  background-color: #fff;
+  border: 1px solid #647a95;
+  -moz-border-bottom-left-radius: 10px;
+  -o-border-bottom-left-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  -moz-border-bottom-right-radius: 10px;
+  -o-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-width: 0 1px 1px;
+  -moz-box-shadow: 0 0 10px #647a95;
+  -o-box-shadow: 0 0 10px #647a95;
+  -webkit-box-shadow: 0 0 10px #647a95;
+  box-shadow: 0 0 10px #647a95;
+  margin-bottom: 50px;
+  padding: 10px 0;
+  width: 940px;
+}
+body.metal .section .content {
+  color: #666;
+  font-family: Verdana, helvetica, Arial, sans-serif;
+}
+body.metal .section .content h1 {
+  background-image: -moz-linear-gradient(left, #647a95, #fff 90%);
+  background-image: -o-linear-gradient(left, #647a95, #fff 90%);
+  background-image: -webkit-linear-gradient(left, #647a95, #fff 90%);
+  background-image: linear-gradient(left, #647a95, #fff 90%);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 5px;
+  color: #647a95;
+  font-size: 1.4em;
+  font-weight: normal;
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+body.metal .section .content h1 a {
+  text-decoration: none;
+}
+body.metal .section .content h2 {
+  border-bottom: 1px solid #d3d3d3;
+  color: #647a95;
+  font-size: 1.5em;
+  font-weight: normal;
+  margin-bottom: 1em;
+  padding: 10px 0 5px;
+}
+body.metal .section .content h3 {
+  background: transparent url(/sfPlopPlugin/themes/metal/images/arrow-blue.png) no-repeat left 15px;
+  border-bottom: 1px dotted #647a95;
+  color: #647a95;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 10px 0 5px 20px;
+}
+body.metal .section .content h4 {
+  background: transparent url(/sfPlopPlugin/themes/metal/images/arrow-grey.png) no-repeat left 5px;
+  color: #6d6d6d;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.5em;
+  padding: 10px 0 5px 20px;
+}
+body.metal .section .content h5 {
+  background: transparent url(/sfPlopPlugin/themes/metal/images/arrow-blue.png) no-repeat left 15px;
+  color: #647a95;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 10px 0 5px 20px;
+}
+
+body.metal .section .content h6 {
+  background: transparent url(/sfPlopPlugin/themes/metal/images/arrow-blue.png) no-repeat left 12px;
+  color: #647a95;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 10px 0 5px 20px;
+}
+
+/* RichText content */
+body.metal .section .content a {
+  color: #647a95;
+}
+body.metal .section .content a:hover {
+  color: #000;
+}
+body.metal .section .content.RichText strong {
+  color: #000;
+}
+body.metal .section .content.RichText hr {
+  background-image: -moz-linear-gradient(left, #647a95, #fff 90%);
+  background-image: -o-linear-gradient(left, #647a95, #fff 90%);
+  background-image: -webkit-linear-gradient(left, #647a95, #fff 90%);
+  background-image: linear-gradient(left, #647a95, #fff 90%);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 5px;
+  border: none;
+  display: block;
+  height: 5px;
+  width: 100%;
+}
+
+/* PageHeader */
+body.metal .section.PageHeader .content {
+  background: #fff url(/sfPlopPlugin/themes/metal/images/banner.png) no-repeat left 5px;
+  height: 170px;
+  margin: 10px 0;
+  position: relative;
+}
+body.metal .section.PageHeader .content:before,
+body.metal .section.PageHeader .content:after {
+  background-color: #fff;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+body.metal .section.PageHeader .content:before {
+  border-bottom: 1px solid #647a95;
+  border-top: 5px solid #647a95;
+  top: 0;
+}
+body.metal .section.PageHeader .content:after {
+  border-bottom: 5px solid #647a95;
+  border-top: 1px solid #647a95;
+  top: 160px;
+}
+body.metal .section.PageHeader .content h1 {
+  background: none;
+  font-size: 28px;
+  padding-top: 50px;
+  text-align: center;
+}
+body.metal .section.PageHeader .content h1,
+body.metal .section.PageHeader .content h1 a {
+  color: #ededed;
+}
+body.metal .section.PageHeader .content h1 a {
+  text-shadow: 0 0 4px #000;
+}
+
+/* LocaleNavigation */
+body.metal .section.LocaleNavigation .content {
+  text-align: right;
+}
+
+/* MainNavigation */
+body.metal .section.MainNavigation .content {
+  padding-right: 30px;
+  padding-top: 5px;
+  position: relative;
+}
+body.metal .section.MainNavigation .content:before,
+body.metal .section.MainNavigation .content:after {
+  background-color: #647a95;
+  content: "";
+  height: 100%;
+  padding-bottom: 70px;
+  position: absolute;
+  width: 1px;
+}
+body.metal .section.MainNavigation .content:before {
+  right: 15px;
+  top: 0;
+}
+body.metal .section.MainNavigation .content:after {
+  right: 17px;
+  top: 10px;
+}
+body.metal .section.MainNavigation .content ul.w-menu {
+  list-style-type: none;
+}
+body.metal .section.MainNavigation .content ul.w-menu li {
+  border-left: 0;
+  border-bottom: 1px solid #647a95;
+  display: block;
+  padding: 5px 0;
+}
+body.metal .section.MainNavigation .content ul.w-menu .element {
+  color: #969696;
+  display: block;
+  text-decoration: none;
+}
+body.metal .section.MainNavigation .content ul.w-menu li.lvl > .element,
+body.metal .section.MainNavigation .content ul.w-menu li.lvl1 > .element {
+  background: url(/sfPlopPlugin/themes/metal/images/arrow-big-white.png) no-repeat 5px 5px;
+  padding: 10px 10px 10px 40px;
+}
+body.metal .section.MainNavigation .content ul.w-menu li.current > .element,
+body.metal .section.MainNavigation .content ul.w-menu li.current:first-child > .element,
+body.metal .section.MainNavigation .content ul.w-menu li .element:hover {
+  background-image: url(/sfPlopPlugin/themes/metal/images/arrow-big-blue.png);
+  color: #647a95;
+  text-decoration: none;
+}
+
+/* drop-down menu */
+body.metal .section.MainNavigation .content ul.w-menu ul {
+  padding: 0 0 10px;
+}
+body.metal .section.MainNavigation .content ul.w-menu li li {
+  border-bottom: 0;
+  padding: 0;
+}
+body.metal .section.MainNavigation .content ul.w-menu li li > .element strong {
+  font-weight: normal;
+}
+body.metal .section.MainNavigation .content ul.w-menu li li.lvl2 > .element {
+  background: transparent url(/sfPlopPlugin/themes/metal/images/arrow-small-white.png) no-repeat 50px 5px;
+  color: #737373;
+  display: block;
+  padding-left: 75px;
+}
+body.metal .section.MainNavigation .content ul.w-menu li li.current > .element,
+body.metal .section.MainNavigation .content ul.w-menu li li.current:first-child > .element,
+body.metal .section.MainNavigation .content ul.w-menu li li > .element:hover {
+  background-image: url(/sfPlopPlugin/themes/metal/images/arrow-small-blue.png);
+}
+body.metal .section.MainNavigation .content ul.w-menu li li.current > .element strong,
+body.metal .section.MainNavigation .content ul.w-menu li li.current:first-child > .element strong,
+body.metal .section.MainNavigation .content ul.w-menu li li > .element:hover strong {
+  font-weight: bold;
+}
+
+/* ContactForm */
+body.metal .section.ContactForm .content {
+}
+body.metal .section.ContactForm .content .form-row.form-row-select,
+body.metal .section.ContactForm .content .form-row.form-row-text {
+  width: 50%;
+}
+body.metal .section.ContactForm .content .form-row.form-row-text + .form-row.form-row-text {
+  clear: none;
+}
+body.metal .section.ContactForm .content .form-row.form-row-select select {
+  width: 92%;
+}
+body.metal .section.ContactForm .content .form-row.form-row-text input[type=text] {
+  width: 90%;
+}
+body.metal .section.ContactForm textarea {
+  width: 95%;
+}
+body.metal .section.ContactForm input[type=text],
+body.metal .section.ContactForm textarea,
+body.metal .section.ContactForm select {
+  background-color: #fff;
+  border: 1px solid #647a95;
+  color: #666;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}

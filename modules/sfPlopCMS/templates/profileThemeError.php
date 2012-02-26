@@ -1,0 +1,1 @@
+<?php echo __('The theme has not been updated.', '', 'plopAdmin') ?>

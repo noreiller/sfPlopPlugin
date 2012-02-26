@@ -1,0 +1,785 @@
+# sfGuardPlugin
+sfGuardPermission:
+  sf_plop_cms:
+    name: sf_plop_cms
+    description: Contents
+  sf_plop_dashboard:
+    name: sf_plop_dashboard
+    description: Dashboard
+
+sfGuardGroupPermission:
+  admin_sf_plop_cms:
+    group_id: admin
+    permission_id: sf_plop_cms
+  admin_sf_plop_dashboard:
+    group_id: admin
+    permission_id: sf_plop_dashboard
+
+# sfPlopPlugin
+sfPlopPage:
+  sfPlopPage_1:
+    slug: index
+    tree_left: 1
+    tree_right: 22
+  sfPlopPage_9:
+    slug: templates
+    is_published: false
+    is_category: true
+    tree_left: 16
+    tree_right: 21
+    tree_level: 1
+  sfPlopPage_10:
+    slug: template-layout
+    is_published: false
+    tree_left: 17
+    tree_right: 18
+    tree_level: 2
+  sfPlopPage_11:
+    slug: template-rich-text
+    is_published: false
+    tree_left: 19
+    tree_right: 20
+    tree_level: 2
+    template_id: sfPlopPage_10
+  sfPlopPage_2:
+    slug: lorem-ipsum
+    tree_left: 2
+    tree_right: 3
+    tree_level: 1
+    template_id: sfPlopPage_11
+  sfPlopPage_3:
+    slug: photos
+    tree_left: 4
+    tree_right: 5
+    tree_level: 1
+    template_id: sfPlopPage_10
+  sfPlopPage_4:
+    slug: google-maps
+    tree_left: 6
+    tree_right: 7
+    tree_level: 1
+    template_id: sfPlopPage_10
+  sfPlopPage_5:
+    slug: menu-footer
+    is_published: false
+    is_category: true
+    tree_left: 8
+    tree_right: 15
+    tree_level: 1
+  sfPlopPage_6:
+    slug: sitemap
+    tree_left: 9
+    tree_right: 10
+    tree_level: 2
+    template_id: sfPlopPage_10
+  sfPlopPage_7:
+    slug: credits
+    tree_left: 11
+    tree_right: 12
+    tree_level: 2
+    template_id: sfPlopPage_11
+  sfPlopPage_8:
+    slug: mentions
+    tree_left: 13
+    tree_right: 14
+    tree_level: 2
+    template_id: sfPlopPage_11
+
+sfPlopPageI18n:
+  sfPlopPageI18n_1_fr:
+    id: sfPlopPage_1
+    locale: fr
+    title: Accueil
+  sfPlopPageI18n_1_en:
+    id: sfPlopPage_1
+    locale: en
+    title: Homepage
+  sfPlopPageI18n_2_fr:
+    id: sfPlopPage_2
+    locale: fr
+    title: Lorem Ipsum
+  sfPlopPageI18n_2_en:
+    id: sfPlopPage_2
+    locale: en
+    title: Lorem Ipsum
+  sfPlopPageI18n_3_fr:
+    id: sfPlopPage_3
+    locale: fr
+    title: Photos
+  sfPlopPageI18n_3_en:
+    id: sfPlopPage_3
+    locale: en
+    title: Photos
+  sfPlopPageI18n_4_fr:
+    id: sfPlopPage_4
+    locale: fr
+    title: Google maps
+  sfPlopPageI18n_4_en:
+    id: sfPlopPage_4
+    locale: en
+    title: Google maps
+  sfPlopPageI18n_5_fr:
+    id: sfPlopPage_5
+    locale: fr
+    title: Menu de bas de page
+  sfPlopPageI18n_5_en:
+    id: sfPlopPage_5
+    locale: en
+    title: Footer menu
+  sfPlopPageI18n_6_fr:
+    id: sfPlopPage_6
+    locale: fr
+    title: Plan du site
+  sfPlopPageI18n_6_en:
+    id: sfPlopPage_6
+    locale: en
+    title: Sitemap
+  sfPlopPageI18n_7_fr:
+    id: sfPlopPage_7
+    locale: fr
+    title: Crédits
+  sfPlopPageI18n_7_en:
+    id: sfPlopPage_7
+    locale: en
+    title: Credits
+  sfPlopPageI18n_8_fr:
+    id: sfPlopPage_8
+    locale: fr
+    title: Mentions légales
+  sfPlopPageI18n_8_en:
+    id: sfPlopPage_8
+    locale: en
+    title: Legal mentions
+  sfPlopPageI18n_9_fr:
+    id: sfPlopPage_9
+    locale: fr
+    title: Modèles de page
+  sfPlopPageI18n_9_en:
+    id: sfPlopPage_9
+    locale: en
+    title: Page templates
+  sfPlopPageI18n_10_fr:
+    id: sfPlopPage_10
+    locale: fr
+    title: Modèle de mise en page
+  sfPlopPageI18n_10_en:
+    id: sfPlopPage_10
+    locale: en
+    title: Layout template
+  sfPlopPageI18n_11_fr:
+    id: sfPlopPage_11
+    locale: fr
+    title: Modèle de texte enrichi
+  sfPlopPageI18n_11_en:
+    id: sfPlopPage_11
+    locale: en
+    title: Rich text template
+
+sfPlopSlot:
+  # Homepage
+  sfPlopSlot_1_1:
+    page_id: sfPlopPage_1
+    template: Date
+    layout: l
+    sortable_rank: 1
+    is_published: 1
+  sfPlopSlot_1_2:
+    page_id: sfPlopPage_1
+    template: LocaleNavigation
+    layout: cr
+    sortable_rank: 2
+    is_published: 1
+  sfPlopSlot_1_3:
+    page_id: sfPlopPage_1
+    template: PageHeader
+    layout: lcr
+    sortable_rank: 3
+    is_published: 1
+  sfPlopSlot_1_4:
+    page_id: sfPlopPage_1
+    template: MainNavigation
+    layout: l
+    sortable_rank: 4
+    is_published: 1
+  sfPlopSlot_1_5:
+    page_id: sfPlopPage_1
+    template: PageTitle
+    layout: cr
+    sortable_rank: 5
+    is_published: 1
+  sfPlopSlot_1_6:
+    page_id: sfPlopPage_1
+    template: RichText
+    layout: c
+    sortable_rank: 6
+    is_published: 1
+  sfPlopSlot_1_7:
+    page_id: sfPlopPage_1
+    template: ThemeSwitcher
+    layout: r
+    sortable_rank: 7
+    is_published: 1
+  sfPlopSlot_1_8:
+    page_id: sfPlopPage_1
+    template: SecondNavigation
+    layout: lc
+    sortable_rank: 8
+    is_published: 1
+  sfPlopSlot_1_9:
+    page_id: sfPlopPage_1
+    template: PoweredByPlopCMS
+    layout: r
+    sortable_rank: 9
+    is_published: 1
+  # Layout
+  sfPlopSlot_10_1:
+    page_id: sfPlopPage_10
+    template: Date
+    layout: l
+    sortable_rank: 1
+    is_published: 1
+    is_editable: 0
+  sfPlopSlot_10_2:
+    page_id: sfPlopPage_10
+    template: LocaleNavigation
+    layout: cr
+    sortable_rank: 2
+    is_published: 1
+    is_editable: 0
+  sfPlopSlot_10_3:
+    page_id: sfPlopPage_10
+    template: PageHeader
+    layout: lcr
+    sortable_rank: 3
+    is_published: 1
+    is_editable: 0
+  sfPlopSlot_10_4:
+    page_id: sfPlopPage_10
+    template: MainNavigation
+    layout: l
+    sortable_rank: 4
+    is_published: 1
+    is_editable: 0
+  sfPlopSlot_10_5:
+    page_id: sfPlopPage_10
+    template: PageTitle
+    layout: cr
+    sortable_rank: 5
+    is_published: 1
+    is_editable: 0
+  sfPlopSlot_10_6:
+    page_id: sfPlopPage_10
+    template: Area
+    layout: cr
+    sortable_rank: 6
+    is_published: 1
+  sfPlopSlot_10_7:
+    page_id: sfPlopPage_10
+    template: SecondNavigation
+    layout: lc
+    sortable_rank: 7
+    is_published: 1
+    is_editable: 0
+  sfPlopSlot_10_8:
+    page_id: sfPlopPage_10
+    template: PoweredByPlopCMS
+    layout: r
+    sortable_rank: 8
+    is_published: 1
+    is_editable: 0
+  # Other pages
+  sfPlopSlot_3_1:
+    page_id: sfPlopPage_3
+    template: DistantGallery
+    layout: cr
+    sortable_rank: 1
+    is_published: 1
+  sfPlopSlot_6_1:
+    page_id: sfPlopPage_6
+    template: SiteMap
+    layout: mr
+    sortable_rank: 1
+    is_published: 1
+  sfPlopSlot_11_1:
+    page_id: sfPlopPage_11
+    template: RichText
+    layout: cr
+    sortable_rank: 1
+    is_published: 1
+    is_editable: 0
+  sfPlopSlot_4_1:
+    page_id: sfPlopPage_4
+    template: GoogleMaps
+    layout: cr
+    sortable_rank: 1
+    is_published: 1
+  sfPlopSlot_4_2:
+    page_id: sfPlopPage_4
+    template: GoogleMapsFilter
+    layout: ml
+    sortable_rank: 2
+    is_published: 1
+  sfPlopSlot_4_3:
+    page_id: sfPlopPage_4
+    template: GoogleMapsPosition
+    layout: mr
+    sortable_rank: 3
+    is_published: 1
+  sfPlopSlot_4_4:
+    page_id: sfPlopPage_4
+    template: GoogleMapsPosition
+    layout: mr
+    sortable_rank: 4
+    is_published: 1
+  sfPlopSlot_4_5:
+    page_id: sfPlopPage_4
+    template: GoogleMapsPosition
+    layout: mr
+    sortable_rank: 5
+    is_published: 1
+  sfPlopSlot_4_6:
+    page_id: sfPlopPage_4
+    template: GoogleMapsPosition
+    layout: mr
+    sortable_rank: 6
+    is_published: 1
+  sfPlopSlot_4_7:
+    page_id: sfPlopPage_4
+    template: GoogleMapsPosition
+    layout: mr
+    sortable_rank: 7
+    is_published: 1
+  sfPlopSlot_4_8:
+    page_id: sfPlopPage_4
+    template: GoogleMapsPosition
+    layout: mr
+    sortable_rank: 7
+    is_published: 1
+
+sfPlopSlotConfig:
+  # Homepage
+  sfPlopSlotConfig_1_1:
+    slot_id: sfPlopSlot_1_1
+    page_id: sfPlopPage_1
+  sfPlopSlotConfig_1_2:
+    slot_id: sfPlopSlot_1_2
+    page_id: sfPlopPage_1
+  sfPlopSlotConfig_1_3:
+    slot_id: sfPlopSlot_1_3
+    page_id: sfPlopPage_1
+  sfPlopSlotConfig_1_4:
+    slot_id: sfPlopSlot_1_4
+    page_id: sfPlopPage_1
+  sfPlopSlotConfig_1_5:
+    slot_id: sfPlopSlot_1_5
+    page_id: sfPlopPage_1
+  sfPlopSlotConfig_1_6:
+    slot_id: sfPlopSlot_1_6
+    page_id: sfPlopPage_1
+  sfPlopSlotConfig_1_7:
+    slot_id: sfPlopSlot_1_7
+    page_id: sfPlopPage_1
+  sfPlopSlotConfig_1_8:
+    slot_id: sfPlopSlot_1_8
+    page_id: sfPlopPage_1
+  sfPlopSlotConfig_1_9:
+    slot_id: sfPlopSlot_1_9
+    page_id: sfPlopPage_1
+  # Layout
+  sfPlopSlotConfig_10_1:
+    slot_id: sfPlopSlot_10_1
+    page_id: sfPlopPage_10
+  sfPlopSlotConfig_10_2:
+    slot_id: sfPlopSlot_10_2
+    page_id: sfPlopPage_10
+  sfPlopSlotConfig_10_3:
+    slot_id: sfPlopSlot_10_3
+    page_id: sfPlopPage_10
+  sfPlopSlotConfig_10_4:
+    slot_id: sfPlopSlot_10_4
+    page_id: sfPlopPage_10
+  sfPlopSlotConfig_10_5:
+    slot_id: sfPlopSlot_10_5
+    page_id: sfPlopPage_10
+  sfPlopSlotConfig_10_6:
+    slot_id: sfPlopSlot_10_6
+    page_id: sfPlopPage_10
+  sfPlopSlotConfig_10_7:
+    slot_id: sfPlopSlot_10_7
+    page_id: sfPlopPage_10
+  sfPlopSlotConfig_10_8:
+    slot_id: sfPlopSlot_10_8
+    page_id: sfPlopPage_10
+  # Other pages
+  sfPlopSlotConfig_3_1:
+    slot_id: sfPlopSlot_3_1
+    page_id: sfPlopPage_3
+  sfPlopSlotConfig_6_1:
+    slot_id: sfPlopSlot_6_1
+    page_id: sfPlopPage_6
+  sfPlopSlotConfig_11_1:
+    slot_id: sfPlopSlot_11_1
+    page_id: sfPlopPage_11
+  sfPlopSlotConfig_11_1_2:
+    slot_id: sfPlopSlot_11_1
+    page_id: sfPlopPage_2
+  sfPlopSlotConfig_11_1_7:
+    slot_id: sfPlopSlot_11_1
+    page_id: sfPlopPage_7
+  sfPlopSlotConfig_11_1_8:
+    slot_id: sfPlopSlot_11_1
+    page_id: sfPlopPage_8
+  sfPlopSlotConfig_4_1:
+    slot_id: sfPlopSlot_4_1
+    page_id: sfPlopPage_4
+  sfPlopSlotConfig_4_2:
+    slot_id: sfPlopSlot_4_2
+    page_id: sfPlopPage_4
+  sfPlopSlotConfig_4_3:
+    slot_id: sfPlopSlot_4_3
+    page_id: sfPlopPage_4
+  sfPlopSlotConfig_4_4:
+    slot_id: sfPlopSlot_4_4
+    page_id: sfPlopPage_4
+  sfPlopSlotConfig_4_5:
+    slot_id: sfPlopSlot_4_5
+    page_id: sfPlopPage_4
+  sfPlopSlotConfig_4_6:
+    slot_id: sfPlopSlot_4_6
+    page_id: sfPlopPage_4
+  sfPlopSlotConfig_4_7:
+    slot_id: sfPlopSlot_4_7
+    page_id: sfPlopPage_4
+  sfPlopSlotConfig_4_8:
+    slot_id: sfPlopSlot_4_8
+    page_id: sfPlopPage_4
+
+sfPlopSlotConfigI18n:
+  # Homepage
+  sfPlopSlotConfigI18n_1_3_fr:
+    id: sfPlopSlotConfig_1_3
+    locale: fr
+    value: |
+      <h1><a href="/">Plop CMS</a></h1>
+      <h2><a href="/">Application web open-source gratuite</a></h2>
+
+  sfPlopSlotConfigI18n_1_3_en:
+    id: sfPlopSlotConfig_1_3
+    locale: en
+    value: |
+      <h1><a href="/">Plop CMS</a></h1>
+      <h2><a href="/">Free open-source web application</a></h2>
+
+  sfPlopSlotConfigI18n_1_6_fr:
+    id: sfPlopSlotConfig_1_6
+    locale: fr
+    value: |
+      <h2>En quelques mots...</h2>
+      <p>Plop CMS est un outil de publication de contenus sur le web, outil appelé plus communément CMS. Grâce à une interface innovante de blocs positionnables et déplaçables, Plop CMS vous permet de créer des dizaines de combinaisons de pages web en quelques clics.</p>
+      <p>Que ce soient des mises en page originales ou des modèles réutilisables, vos pages web sont éditables et publiables instantanément dans la ou les langues de votre choix.</p>
+      <p>Vous souhaitez publier du texte, une image, une galerie photo, un formulaire de contact, un widget Twitter ou Facebook, une vidéo YouTube, etc, rien n’est plus facile avec Plop CMS !</p>
+      <p> </p>
+      <h2>Essayez le !</h2>
+      <p>Pour accéder à l'administration, utilisez le formulaire ci-contre avec les identifiants suivants :</p>
+      <ul>
+      <li>identifiant : admin</li>
+      <li>mot de passe : admin</li>
+      </ul>
+
+  sfPlopSlotConfigI18n_1_6_en:
+    id: sfPlopSlotConfig_1_6
+    locale: en
+    value: |
+      <h2>In a few words...</h2>
+      <p>Plop CMS is a content publication tool on the web, tool commonly called CMS. Thanks to an innovating interface of positionning and moveable blocs, Plop CMS let you create tens of page combinations with a few clicks.</p>
+      <p>Whether they are original layouts or reusable templates, web pages can be edited and publishable instantly in the language of your choice.</p>
+      <p>You want to publish text, image, photo gallery, contact form, a Twitter or Facebook widget, a YouTube video, etc., nothing is more easy with Plop CMS!</p>
+      <p> </p>
+      <h2>Try it !</h2>
+      <p>To access the administration, use the form below with the following login :</p>
+      <ul>
+      <li>login : admin</li>
+      <li>password : admin</li>
+      </ul>
+
+  sfPlopSlotConfigI18n_1_8_fr:
+    id: sfPlopSlotConfig_1_8
+    locale: fr
+    options: |
+      relative_page: menu-footer
+
+  sfPlopSlotConfigI18n_1_8_en:
+    id: sfPlopSlotConfig_1_8
+    locale: en
+    options: |
+      relative_page: menu-footer
+
+  # Layout
+  sfPlopSlotConfigI18n_10_3_fr:
+    id: sfPlopSlotConfig_10_3
+    locale: fr
+    value: |
+      <h1><a href="/">Plop CMS</a></h1>
+      <h2><a href="/">Application web open-source gratuite</a></h2>
+
+  sfPlopSlotConfigI18n_10_3_en:
+    id: sfPlopSlotConfig_10_3
+    locale: en
+    value: |
+      <h1><a href="/">Plop CMS</a></h1>
+      <h2><a href="/">Free open-source web application</a></h2>
+
+  sfPlopSlotConfigI18n_10_7_fr:
+    id: sfPlopSlotConfig_10_7
+    locale: fr
+    options: |
+      ---
+      relative_page: menu-footer
+
+  sfPlopSlotConfigI18n_10_7_en:
+    id: sfPlopSlotConfig_10_7
+    locale: en
+    options: |
+      ---
+      relative_page: menu-footer
+
+  # Other pages
+  sfPlopSlotConfigI18n_11_1_fr:
+    id: sfPlopSlotConfig_11_1
+    locale: fr
+    value: |
+      <p><a href="http://www.plop-cms.com/" target="_blank"><img src="/sfPlopPlugin/images/plop-big-black-fr.png" style="float:left;" /></a> <strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+      <h2>Header Level 2</h2>
+      <ol>
+        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+        <li>Aliquam tincidunt mauris eu risus.</li>
+      </ol>
+      <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+      <h3>Header Level 3</h3>
+      <ul>
+        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+        <li>Aliquam tincidunt mauris eu risus.</li>
+      </ul>
+      <pre><code>
+      .header h1 a {
+        display: block;
+        width: 300px;
+        height: 80px;
+      }
+      </code></pre>
+
+  sfPlopSlotConfigI18n_11_1_en:
+    id: sfPlopSlotConfig_11_1
+    locale: en
+    value: |
+      <p><a href="http://www.plop-cms.com/" target="_blank"><img src="/sfPlopPlugin/images/plop-big-black-en.png" style="float:left;" /></a> <strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+      <h2>Header Level 2</h2>
+      <ol>
+        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+        <li>Aliquam tincidunt mauris eu risus.</li>
+      </ol>
+      <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+      <h3>Header Level 3</h3>
+      <ul>
+        <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+        <li>Aliquam tincidunt mauris eu risus.</li>
+      </ul>
+      <pre><code>
+      .header h1 a {
+        display: block;
+        width: 300px;
+        height: 80px;
+      }
+      </code></pre>
+
+  sfPlopSlotConfigI18n_3_1_fr:
+    id: sfPlopSlotConfig_3_1
+    locale: fr
+    options: |
+      ---
+      feed_url: http://api.flickr.com/services/feeds/photos_public.gne
+      feed_type: flickr
+      use_prev_next_buttons: 1
+
+  sfPlopSlotConfigI18n_3_1_en:
+    id: sfPlopSlotConfig_3_1
+    locale: en
+    options: |
+      ---
+      feed_url: https://picasaweb.google.com/data/feed/base/featured
+      feed_type: picasa
+      use_prev_next_buttons: 1
+
+  sfPlopSlotConfigI18n_4_1_fr:
+    id: sfPlopSlotConfig_4_1
+    locale: fr
+    value: Paris est le centre de la carte
+    options: |
+      ---
+      title: Paris
+      address: Paris
+      country: France
+      filter: Europe
+
+  sfPlopSlotConfigI18n_4_1_en:
+    id: sfPlopSlotConfig_4_1
+    locale: en
+    value: Paris is the center of the map
+    options: |
+      ---
+      title: Paris
+      address: Paris
+      country: France
+      filter: Europe
+
+  sfPlopSlotConfigI18n_4_2_fr:
+    id: sfPlopSlotConfig_4_2
+    locale: fr
+    options: |
+      ---
+      tag1: Europe
+      tag2: Amériques
+      tag3: Asie
+      tag4: Pacifique
+
+  sfPlopSlotConfigI18n_4_2_en:
+    id: sfPlopSlotConfig_4_2
+    locale: en
+    options: |
+      ---
+      tag1: Europe
+      tag2: America
+      tag3: Asia
+      tag4: Pacific
+
+  sfPlopSlotConfigI19n_4_3_fr:
+    id: sfPlopSlotConfig_4_3
+    locale: fr
+    value: London
+    options: |
+      ---
+      title: London
+      address: London
+      country: England
+      filter: Europe
+
+  sfPlopSlotConfigI19n_4_3_en:
+    id: sfPlopSlotConfig_4_3
+    locale: en
+    value: London
+    options: |
+      ---
+      title: London
+      address: London
+      country: England
+      filter: Europe
+
+  sfPlopSlotConfigI18n_4_4_fr:
+    id: sfPlopSlotConfig_4_4
+    locale: fr
+    value: New York
+    options: |
+      ---
+      title: New York
+      address: New York
+      country: USA
+      filter: Amériques
+
+  sfPlopSlotConfigI20n_4_4_en:
+    id: sfPlopSlotConfig_4_4
+    locale: en
+    value: New York
+    options: |
+      ---
+      title: New York
+      address: New York
+      country: USA
+      filter: America
+
+  sfPlopSlotConfigI18n_4_5_fr:
+    id: sfPlopSlotConfig_4_5
+    locale: fr
+    value: Pékin
+    options: |
+      ---
+      title: Pékin
+      address: Pékin
+      country: Chine
+      filter: Asie
+
+  sfPlopSlotConfigI21n_4_5_en:
+    id: sfPlopSlotConfig_4_5
+    locale: en
+    value: Beijing
+    options: |
+      ---
+      title: Beijing
+      address: Beijing
+      country: China
+      filter: Asia
+
+  sfPlopSlotConfigI18n_4_6_fr:
+    id: sfPlopSlotConfig_4_6
+    locale: fr
+    value: New Delhi
+    options: |
+      ---
+      title: New Delhi
+      address: New Delhi
+      country: India
+      filter: Asie
+
+  sfPlopSlotConfigI22n_4_6_en:
+    id: sfPlopSlotConfig_4_6
+    locale: en
+    value: New Delhi
+    options: |
+      ---
+      title: New Delhi
+      address: New Delhi
+      country: India
+      filter: Asia
+
+  sfPlopSlotConfigI18n_4_7_fr:
+    id: sfPlopSlotConfig_4_7
+    locale: fr
+    value: Canberra
+    options: |
+      ---
+      title: Canberra
+      address: Canberra
+      country: Australie
+      filter: Pacifique
+
+  sfPlopSlotConfigI23n_4_7_en:
+    id: sfPlopSlotConfig_4_7
+    locale: en
+    value: Canberra
+    options: |
+      ---
+      title: Canberra
+      address: Canberra
+      country: Australia
+      filter: Pacific
+
+  sfPlopSlotConfigI18n_4_8_fr:
+    id: sfPlopSlotConfig_4_8
+    locale: fr
+    value: Santiago du Chili
+    options: |
+      ---
+      title: Santiago
+      address: Santiago du Chili
+      country: Chili
+      filter: Amériques
+
+  sfPlopSlotConfigI24n_4_8_en:
+    id: sfPlopSlotConfig_4_8
+    locale: en
+    value: Santiago
+    options: |
+      ---
+      title: Santiago
+      address: Santiago
+      country: Chile
+      filter: America

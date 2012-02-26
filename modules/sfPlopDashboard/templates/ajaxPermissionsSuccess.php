@@ -1,0 +1,1 @@
+<?php echo __('The credential has been updated.', '', 'plopAdmin') ?>
