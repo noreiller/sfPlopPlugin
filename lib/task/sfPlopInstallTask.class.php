@@ -17,7 +17,7 @@ class sfPlopInstallTask extends sfBaseTask
 The [install|INFO] copy the required files from the samples, configure them and the database.
 Call it with:
 
-  [php symfony plop:install mysql:host=localhost;dbname=example root mYsEcret|INFO]
+  [php symfony plop:install "mysql:host=localhost;dbname=plop" root mYsEcret|INFO]
 EOF;
   }
 
