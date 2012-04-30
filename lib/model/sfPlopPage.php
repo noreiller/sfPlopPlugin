@@ -99,7 +99,7 @@ class sfPlopPage extends BasesfPlopPage {
   }
 
   /**
-   * Checkif the page has pages using this one as a template.
+   * Check if the page has pages using this one as a template.
    * @return Boolean
    */
   public function hasTemplateChildren()
@@ -108,7 +108,7 @@ class sfPlopPage extends BasesfPlopPage {
   }
 
   /**
-   * Count the number of page using this one as a template.
+   * Count the number of pages using this one as a template.
    * @return Boolean
    */
   public function countTemplateChildren()
@@ -116,6 +116,18 @@ class sfPlopPage extends BasesfPlopPage {
     return sfPlopPageQuery::create()
       ->filterByTemplateId($this->getId())
       ->count()
+    ;
+  }
+
+  /**
+   * Get the pages using this one as a template.
+   * @return Boolean
+   */
+  public function getTemplateChildren()
+  {
+    return sfPlopPageQuery::create()
+      ->filterByTemplateId($this->getId())
+      ->find()
     ;
   }
 
@@ -176,6 +188,60 @@ class sfPlopPage extends BasesfPlopPage {
   }
 
   /**
+   * Check if the current page can have slots
+   * @return boolean 
+   */
+  public function isSlotable() 
+  {
+    return ($this->isTemplate() && !$this->isCategory())
+      || (!$this->isTemplate() && $this->getTemplate()->hasSlotArea());
+  }
+
+  /**
+   * Delete the slots attached to this page
+   */
+  public function deleteOwnSlots()
+  {
+    foreach ($this->getsfPlopSlots() as $slot)
+      $slot->delete();
+  }
+
+  /**
+   * Delete all the unused template slot configs
+   * @param  Integer $tpl_id The template page to retrieve slots
+   */
+  public function deleteUnusedInheritedSlotConfigs($tpl_id)
+  {
+    if (!$tpl_id)
+      return;
+
+    $slot_ids = array();
+    $slots = sfPlopSlotQuery::create()
+      ->filterByPageId($tpl_id)
+      ->filterByTemplate('Area', Criteria::NOT_EQUAL)
+      ->find()
+    ;
+    foreach ($slots as $slot)
+      $slot_ids []= $slot->getId();
+
+    $page_ids = array($this->getId());
+    $pages = sfPlopPageQuery::create()
+      ->filterByTemplateId($this->getId())
+      ->find()
+    ;
+    foreach ($pages as $page)
+      $page_ids []= $page->getId();
+
+    $slot_configs = sfPlopSlotConfigQuery::create()
+      ->filterByPageId($page_ids)
+      ->filterBySlotId($slot_ids)
+      ->find()
+    ;
+    foreach ($slot_configs as $sc)
+      $sc->delete();
+  }
+
+  /**
    * Override the doSave function to do some custom tweaks.
    * @param PropelPDO $con
    */
@@ -194,6 +260,14 @@ class sfPlopPage extends BasesfPlopPage {
       {
         $this->setTemplateId(null);
       }
+
+      if (!$this->isSlotable())
+        $this->deleteOwnSlots();
+
+      $this->getPeer()->removeInstanceFromPool($this);
+      $oldTemplateId = $this->getPeer()->retrieveByPK($this->getId())->getTemplateId();
+      if ($oldTemplateId != $this->getTemplateId())
+        $this->deleteUnusedInheritedSlotConfigs($oldTemplateId);
     }
 
     return parent::doSave($con);

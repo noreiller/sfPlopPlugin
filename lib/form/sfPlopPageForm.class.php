@@ -53,31 +53,14 @@ class sfPlopPageForm extends BasesfPlopPageForm
     $this->validatorSchema['icon'] = new sfValidatorString(array(
       'required' => false
     ));
-
-
-    if ($this->getOption('page_ref') instanceof sfPlopPage)
-    {
-      $this->widgetSchema['template_id'] = new sfWidgetFormInputHidden(array(
-        'default' => $this->getOption('page_ref')->getTemplateId()
-      ));
-      $this->widgetSchema['theme'] = new sfWidgetFormInputHidden(array(
-        'default' => $this->getOption('page_ref')->getTheme()
-      ));
-    }
-    elseif ($this->getObject()->isRoot() || $this->getObject()->hasSlots())
-    {
-      unset($this['template_id']);
-    }
-    else
-    {
-      $this->widgetSchema['template_id'] = new sfWidgetFormChoice(array(
-        'choices' => array('' => '') + sfPlopPagePeer::getPagesWithLevel()
-      ));
-      $this->validatorSchema['template_id'] = new sfValidatorChoice(array(
-        'choices' => array_keys(sfPlopPagePeer::getPagesWithLevel()),
-        'required' => false
-      ));
-    }
+    
+    $this->widgetSchema['template_id'] = new sfWidgetFormChoice(array(
+      'choices' => array('' => '') + $this->getTemplatePages()
+    ));
+    $this->validatorSchema['template_id'] = new sfValidatorChoice(array(
+      'choices' => array_keys($this->getTemplatePages()),
+      'required' => false
+    ));
 
     if (!$this->getObject()->isRoot())
     {
@@ -105,6 +88,20 @@ class sfPlopPageForm extends BasesfPlopPageForm
         'callback' => array($this, 'checkPositions')
       ))
     );
+  }
+
+  /**
+   * Return the template pages without the current page 
+   * @return Array Object collection
+   */
+  protected function getTemplatePages() 
+  {
+    $pages = sfPlopPagePeer::getPagesWithLevel();
+
+    if (!$this->isNew())
+      unset($pages[$this->getObject()->getId()]);
+
+    return $pages;
   }
 
   /**
