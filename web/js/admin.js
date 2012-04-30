@@ -422,7 +422,10 @@ var sfPlopAdmin = {
    * Update the ranks of the displayed slots.
    */
   updateSlotRanks : function () {
-    jQuery('#container > .section > .w-toolbar .w.w-rank').each(function (i, e) {
+   jQuery(jQuery('#container > .section.Area > .section').length > 0
+      ? '#container > .section.Area > .section > .w-toolbar .w.w-rank'
+      : '#container > .section > .w-toolbar .w.w-rank'
+   ).each(function (i, e) {
       jQuery(e).text(i + 1);
     });
   },
@@ -779,11 +782,13 @@ var sfPlopAdmin = {
         },
         update : function(event, ui) {
           var
-            list = jQuery(sfPlopAdmin.val('slot-sortable')).sortable('toArray'),
+            l = jQuery(sfPlopAdmin.val('slot-sortable')).sortable('toArray'),
             order = ''
           ;
-          for (var i in list) {
-            order += '&order[' + (list[i]).toString().replace('slot_', '') + ']=' + (i +1);
+          for (var i in l) {
+            var j = Number(i);
+            if (!isNaN(j))
+              order += ('&order[' + (l[j]).toString().replace('slot_', '') + ']=' + (j +1));
           }
 
           jQuery.ajax({
@@ -800,6 +805,7 @@ var sfPlopAdmin = {
 
         }
       });
+      this.val('slot-sortable', sortable);
     }
   },
 
