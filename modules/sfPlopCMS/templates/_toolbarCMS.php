@@ -138,10 +138,7 @@
                 'title' => __('Create a new page', '', 'plopAdmin')
             )) ?>
           </li>
-          <?php if (
-            ($page->isTemplate() && !$page->isCategory())
-            || (!$page->isTemplate() && $page->getTemplate()->hasSlotArea())
-          ): ?>
+          <?php if ($page->isSlotable()): ?>
             <li>
               <?php echo link_to(
                 __('Create a new block', '', 'plopAdmin'),
