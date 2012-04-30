@@ -407,11 +407,11 @@ body > .w-toolbar .menu-quick-links {
 }
 
 /*** TOOLBARS / SLOTS ***/
-body > div.container > .section > .w-toolbar {
+.section > .w-toolbar {
+  -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
-  -webkit-border-radius: 2px;
   border-radius: 2px;
   display: none;
   font-size: 13px;
@@ -422,34 +422,34 @@ body > div.container > .section > .w-toolbar {
   padding: 0 5px;
   position: relative;
 }
-body > div.container > .section > .w-toolbar > .title {
+.section > .w-toolbar > .title {
   overflow: hidden;
 }
-body > div.container > .section > .w-toolbar > .title > .w {
+.section > .w-toolbar > .title > .w {
   display: inline-block;
   vertical-align: middle;
 }
-body > div.container > .section > .w-toolbar > .title > .w-title {
+.section > .w-toolbar > .title > .w-title {
   height: 100%;
   max-width: 45%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-body > div.container > .section > .w-toolbar > .w-menu {
+.section > .w-toolbar > .w-menu {
   height: 100%;
   position: absolute;
   right: 2px;
   top: 0;
 }
-body > div.container > .section > .w-toolbar > .w-menu > .w-menu-dd > .element {
+.section > .w-toolbar > .w-menu > .w-menu-dd > .element {
   line-height: 20px;
   margin-top: 0;
 }
-body > div.container > .section > .w-toolbar > .w-menu > .w-menu-dd > ul {
+.section > .w-toolbar > .w-menu > .w-menu-dd > ul {
   cursor: default;
 }
-body > div.container > .section > .w-toolbar > .w-menu > .w-menu-dd .close-toolbar {
+.section > .w-toolbar > .w-menu > .w-menu-dd .close-toolbar {
   background: url("/sfPlopPlugin/vendor/famfamfam/silk/cross.png") no-repeat right bottom;
   border: none;
   bottom: 5px;
@@ -465,7 +465,7 @@ body > div.container textarea.w-richtext {
   width: 100%;
   max-width: 99%;
 }
-body > div.container > .section.w-admin-active {
+.section.w-admin-active {
   -moz-box-shadow: 0 0 10px #f00;
   -ms-box-shadow: 0 0 10px #f00;
   -o-box-shadow: 0 0 10px #f00;
@@ -473,10 +473,10 @@ body > div.container > .section.w-admin-active {
   box-shadow: 0 0 10px #f00;
   z-index: 10;
 }
-body > div.container > .section.w-admin-active > .content {
+.section.w-admin-active > .content {
   min-height: 30px;
 }
-body > div.container > .section.w-admin-active > .admin {
+.section.w-admin-active > .admin {
   background-color: #fff;
   border-top: 1px solid #bbb;
   padding: 1px 5px;

@@ -82,15 +82,22 @@ var sfPlopAdmin = {
     this.initRichEditor();
     this.hideSfWDT();
     this.loadPlugins();
+    this.loadSlotPlugins();
     this.loadSlotToolbarMenu();
     this.loadContentEdition();
     this.loadSlotCreation();
     this.loadSlotEdition();
-    this.loadSlotReorder();
     this.loadAdminThemeSwitcher();
     this.loadThemeEditor();
     this.loadAdminAjaxMenuItems();
     sfPlop.hideLoader();
+  },
+
+  /**
+   * Load slot dedicated plugins. This is called in ajax navigation after the success callback.
+   */
+  loadSlotPlugins : function () {
+    this.loadSlotReorder();
   },
 
   /**
@@ -256,6 +263,7 @@ var sfPlopAdmin = {
                   jQuery('#slot_' + form.attr('rel')).replaceWith(d);
                 d = sfPlopAdmin.val('i18n.slot_edition_success');
                 sfPlop.loadPlugins();
+                sfPlopAdmin.loadSlotPlugins();
                 sfPlopAdmin.checkSlotToolbarMenuToggler();
               }
               else if (form.hasClass('w-admin-theme-switch')) {
@@ -477,8 +485,8 @@ var sfPlopAdmin = {
         .addClass('w-on')
         .removeClass('w-off')
       ;
-      jQuery('body > .container > .section > .w-toolbar').slideUp();
-      jQuery('body > .container > .section > .w-toolbar .w-publish.w-off').each(function() {
+      jQuery('.section > .w-toolbar').slideUp();
+      jQuery('.section > .w-toolbar .w-publish.w-off').each(function() {
         jQuery(this).parents('.section:first').slideUp();
       });
     }
@@ -487,8 +495,8 @@ var sfPlopAdmin = {
         .addClass('w-off')
         .removeClass('w-on')
       ;
-      jQuery('body > .container > .section > .w-toolbar').slideDown();
-      jQuery('body > .container > .section').slideDown();
+      jQuery('.section > .w-toolbar').slideDown();
+      jQuery('.section').slideDown();
     }
 
     return jQuery('#preview').is(':checked');
@@ -498,8 +506,8 @@ var sfPlopAdmin = {
    * Load the slot toolbar menu on click event.
    */
   loadSlotToolbarMenu : function () {
-    jQuery('body > .container > .section > .w-toolbar').addClass('w-off');
-    jQuery('body > .container > .section > .w-toolbar > .w-menu > .w-menu-dd .close-toolbar')
+    jQuery('.section > .w-toolbar').addClass('w-off');
+    jQuery('.section > .w-toolbar > .w-menu > .w-menu-dd .close-toolbar')
       .live('click', function (e) {
         jQuery(this).parents('ul:first').slideUp(function (e) {
           jQuery(this).parents('.w-menu-dd:first, .w-toolbar:first')
@@ -510,7 +518,7 @@ var sfPlopAdmin = {
         });
       })
     ;
-    jQuery('body > .container > .section > .w-toolbar > .w-menu > .w-menu-dd > .element')
+    jQuery('.section > .w-toolbar > .w-menu > .w-menu-dd > .element')
       .live('click', function (e) {
         if (jQuery('.w-admin-active').length > 0) {
           sfPlopAdmin.unloadContentEdition();
@@ -551,7 +559,7 @@ var sfPlopAdmin = {
       })
     ;
     if (!sfPlopAdmin.checkSlotToolbarMenuToggler())
-      jQuery('body > .container > .section > .w-toolbar')
+      jQuery('.section > .w-toolbar')
         .slideDown('slow')
       ;
     this.loadSlotToolbarMenuToggler();
@@ -562,7 +570,7 @@ var sfPlopAdmin = {
    * Close all the opened slot toolbar menus.
    */
   closeSlotToolbarMenus : function () {
-    jQuery('body > .container > .section > .w-toolbar > .w-menu > .w-menu-dd > ul')
+    jQuery('.section > .w-toolbar > .w-menu > .w-menu-dd > ul')
       .slideUp(function (e) {
         jQuery(this).parents('.w-menu-dd:first, .w-toolbar:first')
           .removeClass('w-on')
@@ -577,7 +585,7 @@ var sfPlopAdmin = {
    * Load the toolbar menu items with ajax events on live click event.
    */
   loadToolbarMenuItems : function () {
-    jQuery('body > .container > .section > .w-toolbar > .w-menu > .w-menu-dd > ul a.w-ajax, body > .w-toolbar > .nav > .w-menu a.w-ajax')
+    jQuery('.section > .w-toolbar > .w-menu > .w-menu-dd > ul a.w-ajax, body > .w-toolbar > .nav > .w-menu a.w-ajax')
       .live('click', function (e) {
         sfPlopAdmin.loadAjaxElements(
           jQuery(this),
@@ -605,7 +613,7 @@ var sfPlopAdmin = {
    */
   loadContentEdition : function () {
     sfPlopAdmin.launchContentEdition('body', true);
-    jQuery('body > .container > .section > .w-toolbar a.w-admin-content').live('click', function (e) {
+    jQuery('.section > .w-toolbar a.w-admin-content').live('click', function (e) {
       var
         container = jQuery(this).parents('.section:first').addClass('w-admin-active'),
         linkToContainer = jQuery(this)
@@ -692,12 +700,8 @@ var sfPlopAdmin = {
       jQuery(this).ajaxSubmit({
         url: jQuery(this).attr('href'),
         success: function (d, s, x) {
-          if (jQuery('#container > .section.Area').length > 0) {
-            if (jQuery('#container > .section').has('.w-toolbar').filter(':last').length > 0)
-              jQuery(d).insertAfter(jQuery('#container > .section').has('.w-toolbar').filter(':last'));
-            else if (jQuery('#container > .section').length > 0)
-              jQuery(d).insertAfter('#container > .section.Area');
-          }
+          if (jQuery('#container > .section.Area').length > 0)
+            jQuery(d).appendTo('#container > .section.Area');
           else if (jQuery('#container > .section').length > 0)
             jQuery(d).insertAfter('#container > .section:last');
           else
@@ -735,6 +739,7 @@ var sfPlopAdmin = {
           });
           jQuery('#' + sfPlopAdmin.val('jquery_dialog_id')).dialog('close');
           // sfPlopAdmin.loadPlugins();
+          sfPlopAdmin.loadSlotPlugins();
           sfPlop.loadPlugins();
           sfPlopAdmin.checkSlotToolbarMenuToggler();
           jQuery(window).trigger('load');
@@ -752,41 +757,50 @@ var sfPlopAdmin = {
    * Load the slot reorder with drag'n'drop and sortables behaviors.
    */
   loadSlotReorder: function () {
-    jQuery('#container').sortable({
-      forcePlaceholderSize : true,
-      handle : '.w-handle.w-off',
-      helper : 'clone',
-      items: '> .section[data-handle-url]',
-      placeholder: 'w-placeholder',
-      start : function(event, ui) {
-        ui.placeholder
-          .addClass(ui.item.attr('class'))
-          .html(jQuery('<div class="content">&nbsp;</div>'))
-        ;
-      },
-      update : function(event, ui) {
-        var
-          list = jQuery('#container').sortable('toArray'),
-          order = ''
-        ;
-        list.forEach(function(e, i) {
-          order += '&order[' + e.replace('slot_', '') + ']=' + (i +1);
-        });
-
-        jQuery.ajax({
-          url: jQuery('#container > .section[data-handle-url]:first').attr('data-handle-url'),
-          data: order,
-          type: 'POST',
-          success: function (d, s, x) {
-            sfPlopAdmin.notify({
-              text: d
-            });
-            sfPlopAdmin.updateSlotRanks();
+    if (this.val('slot-sortable')) {
+      jQuery(this.val('slot-sortable')).sortable('refresh');
+    }
+    else {
+      var sortable = jQuery('#container > .section.Area > .section[data-handle-url]').length > 0 
+        ? '#container > .section.Area'
+        : '#container'
+      ;
+      jQuery(sortable).sortable({
+        forcePlaceholderSize : true,
+        handle : '.w-handle',
+        helper : 'clone',
+        items: '> .section[data-handle-url]',
+        placeholder: 'w-placeholder',
+        start : function(event, ui) {
+          ui.placeholder
+            .addClass(ui.item.attr('class'))
+            .html(jQuery('<div class="content">&nbsp;</div>'))
+          ;
+        },
+        update : function(event, ui) {
+          var
+            list = jQuery(sfPlopAdmin.val('slot-sortable')).sortable('toArray'),
+            order = ''
+          ;
+          for (var i in list) {
+            order += '&order[' + (list[i]).toString().replace('slot_', '') + ']=' + (i +1);
           }
-        });
 
-      }
-    });
+          jQuery.ajax({
+            url: jQuery('#container .section[data-handle-url]:first').attr('data-handle-url'),
+            data: order,
+            type: 'POST',
+            success: function (d, s, x) {
+              sfPlopAdmin.notify({
+                text: d
+              });
+              sfPlopAdmin.updateSlotRanks();
+            }
+          });
+
+        }
+      });
+    }
   },
 
   /**

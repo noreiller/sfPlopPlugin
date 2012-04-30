@@ -740,7 +740,7 @@ class BasesfPlopCMSActions extends sfActions
     $page = $slotConfig->getPage($this->culture);
 
     $isTemplate = $this->isUserAdmin && (
-      $page->isTemplate() || ($page->getTemplate()->hasSlotArea())
+      $page->isTemplate() || !$slot->getPage()->hasSlotArea()
     );
     $isEditable = $this->isUserAdmin && $slot->isEditable();
 
