@@ -14,7 +14,7 @@ class sfPlopInstallTask extends sfBaseTask
     $this->name             = 'install';
     $this->briefDescription = 'Install and configure the sandbox.';
     $this->detailedDescription = <<<EOF
-The [install|INFO] copy the required files from the samples, configure them and the database.
+The [install|INFO] task makes a copy of the required files from the samples, configure them and the database.
 Call it with:
 
   [php symfony plop:install "mysql:host=localhost;dbname=plop" root mYsEcret|INFO]
