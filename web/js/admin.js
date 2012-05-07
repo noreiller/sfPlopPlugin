@@ -32,41 +32,36 @@ var sfPlopAdmin = {
     this.val('aloha.current_field', null);
     this.val('aloha.current_content', null);
     this.val('aloha.current_field_value', null);
-    this.val('aloha.base', '/sfPlopPlugin/vendor/Aloha-Editor/');
     this.val('aloha.i18n.current', 'en');
     this.val('aloha.repository.name', 'Plop CMS');
     this.val('aloha.repository.url', '/plop/en/ws/repository');
     this.val('aloha.textarea.enabled', 'textarea.w-richtext, #sf_asset_description');
     this.val('aloha.settings', {
-      logLevels: {'error': false, 'warn': false, 'info': false, 'debug': false},
-      errorhandling : false,
-      "locale": this.val('aloha.i18n.current'),
-      jQuery: jQuery,
-      bundles: {
-        plopcms: '/sfPlopPlugin/js/aloha'
+      logLevels: {'error': true, 'warn': false, 'info': false, 'debug': false},
+      errorhandling : true,
+      locale: this.val('aloha.i18n.current'),
+      // jQuery: jQuery,
+      bundles: { plopcms: '/sfPlopPlugin/js/aloha' },
+      floatingmenu: {
+        behaviour: 'topalign',
+        draggable: false,
+        pin: true
       },
-      "floatingmenu": {
-        "behaviour": "topalign"
-      },
-      "plugins": {
-        "ribbon": {
-          enable: false
-        },
-        "table": {
-          config: ['table']
-        },
-        "image": {
-          'config': {
-            'img': {
-              'max_width': 'auto',
-              'max_height': 'auto'
+      plugins: {
+        ribbon: { enable: false },
+        table: { config: ['table'] },
+        image: {
+          config: {
+            img: {
+              max_width: 'auto',
+              max_height: 'auto'
             },
-            'ui': {
-              'align': true,
-              'resize': true, //false,
-              'meta': true,
-              'margin': true, //false,
-              'crop': true //false
+            ui: {
+              align: true,
+              resize: true, //false,
+              meta: true,
+              margin: true, //false,
+              crop: true //false
             }
           }
         }
@@ -84,12 +79,8 @@ var sfPlopAdmin = {
     this.loadPlugins();
     this.loadSlotPlugins();
     this.loadSlotToolbarMenu();
-    this.loadContentEdition();
-    this.loadSlotCreation();
-    this.loadSlotEdition();
     this.loadAdminThemeSwitcher();
     this.loadThemeEditor();
-    this.loadAdminAjaxMenuItems();
     sfPlop.hideLoader();
   },
 
@@ -97,7 +88,10 @@ var sfPlopAdmin = {
    * Load slot dedicated plugins. This is called in ajax navigation after the success callback.
    */
   loadSlotPlugins : function () {
-    this.loadSlotReorder();
+    this.loadContentEdition();
+    this.slotReorder();
+    this.loadAdminAjaxMenuItems();
+    this.loadToolbarMenuItems();
   },
 
   /**
@@ -108,6 +102,55 @@ var sfPlopAdmin = {
     this.loadAutocomplete();
     this.loadDialogCancel();
     this.loadLinkConfirm();
+  },
+
+  /**
+   * Re bind all slots
+   */
+  rebindSlots : function () {
+    this.loadSlotPlugins();
+    sfPlop.loadPlugins();
+    this.checkSlotToolbarMenuToggler();
+    this.loadSlotToolbarMenu();
+    this.loadToolbarMenuItems();
+    jQuery(window).trigger('load');
+  },
+
+  /**
+   * Add a script to the body
+   */
+  addScript : function (options, callback) {
+    if (typeof options != 'object')
+      options = { src: options };
+
+    var s = document.createElement('script'); 
+    s.type = 'text/javascript'; 
+    s.src = options.src;
+    for (var a in options) {
+      if (a != 'src')
+        s.setAttribute(a, options[a])
+    }
+    if (typeof callback == 'function')
+      s.addEventListener('load', callback, false)
+    document.body.appendChild(s);
+  },
+
+  /**
+   * Add a stylesheet to the body
+   */
+  addCss : function (options) {
+    if (typeof options != 'object')
+      options = { href: options };
+
+    var s = document.createElement('link'); 
+    s.rel = 'stylesheet'; 
+    s.type = 'text/css'; 
+    s.href = options.href;
+    for (var a in options) {
+      if (a != 'href')
+        s.setAttribute(a, options[a])
+    }
+    document.head.appendChild(s);
   },
 
   /**
@@ -150,9 +193,8 @@ var sfPlopAdmin = {
    * Updates the temp values
    */
   loadTempVal: function () {
-    for (var k in this._tempVal) {
+    for (var k in this._tempVal)
       this.val(k, this._tempVal[k]);
-    }
   },
 
   /*
@@ -242,7 +284,7 @@ var sfPlopAdmin = {
   },
 
   /*
-   * Load ajax form.
+   * Load ajax forms
    */
   loadAjaxForm : function () {
     jQuery('form.w-ajax').not('.w-bound').each(function (i, e) {
@@ -257,21 +299,19 @@ var sfPlopAdmin = {
                 ;
             },
             success: function(d) {
-              if (form.hasClass('w-admin-content-slot')) {
-                sfPlopAdmin.unloadContentEdition();
-                if (jQuery('#slot_' + form.attr('rel')).length > 0)
-                  jQuery('#slot_' + form.attr('rel')).replaceWith(d);
-                d = sfPlopAdmin.val('i18n.slot_edition_success');
-                sfPlop.loadPlugins();
-                sfPlopAdmin.loadSlotPlugins();
-                sfPlopAdmin.checkSlotToolbarMenuToggler();
+              if (form.hasClass('w-admin-edit-slot'))
+                return sfPlopAdmin.slotEditionSuccess(form, d);
+              else if (form.hasClass('w-admin-create-slot'))
+                return sfPlopAdmin.slotCreationSuccess(form, d);
+              else if (form.hasClass('w-admin-content-slot')) {
+                sfPlopAdmin.slotContentEditionSuccess(form, d);
+                d = this.val('i18n.slot_edition_success');
               }
-              else if (form.hasClass('w-admin-theme-switch')) {
+              else if (form.hasClass('w-admin-theme-switch'))
                 sfPlopAdmin.checkAdminTheme();
-              }
-              else {
+              else
                 sfPlopAdmin.unloadContentEdition();
-              }
+
               sfPlopAdmin.notify({
                 text: d
               });
@@ -324,7 +364,7 @@ var sfPlopAdmin = {
             jQuery('#' + sfPlopAdmin.val('jquery_dialog_id')).remove();
 
           jQuery('<div></div>')
-            .attr('id', sfPlopAdmin.val('jquery_dialog_id'))    
+            .attr('id', sfPlopAdmin.val('jquery_dialog_id'))
             .html(d)
             .appendTo('body')
             .dialog(jQuery.extend({
@@ -337,6 +377,7 @@ var sfPlopAdmin = {
               }
             }, sfPlopAdmin.val(dialogSettings)))
           ;
+          sfPlopAdmin.loadAjaxForm();
           jQuery(window).trigger('load');
         }
         else if (container.hasClass('w-admin-refresh')) {
@@ -430,44 +471,48 @@ var sfPlopAdmin = {
     });
   },
 
+  getRichEditor : function () {
+    if (sfPlopAdmin.val('richtext-editor') == 'aloha-editor' && window.sfPlopAloha)
+      return sfPlopAloha;
+    else
+      return null;
+  },
+
   /*
    * Load the rich-text editor.
    */
   initRichEditor : function () {
-    if (window.sfPlopAloha)
-      sfPlopAloha.init();
+    this.addScript(this.val('richtext-editor-bridge'), function () {
+      sfPlopAdmin.getRichEditor().init();
+    });
   },
 
   /*
    * Load the rich-text edition.
    */
   loadRichEdition : function (f, e) {
-    if (window.sfPlopAloha)
-      sfPlopAloha.load(f, e);
+    sfPlopAdmin.getRichEditor().load(f, e);
   },
 
   /*
    * Reset the rich-text edition.
    */
   resetRichEdition : function () {
-    if (window.sfPlopAloha)
-      sfPlopAloha.reset();
+    sfPlopAdmin.getRichEditor().reset();
   },
 
   /*
    * Unload the rich-text edition.
    */
   unloadRichEdition : function () {
-    if (window.sfPlopAloha)
-      sfPlopAloha.unload();
+    sfPlopAdmin.getRichEditor().unload();
   },
 
   /*
    * Unload the rich-text editor.
    */
   getRichContent : function () {
-    if (window.sfPlopAloha)
-      return sfPlopAloha.getContent();
+    return sfPlopAdmin.getRichEditor().getContent();
   },
 
   /**
@@ -511,7 +556,7 @@ var sfPlopAdmin = {
   loadSlotToolbarMenu : function () {
     jQuery('.section > .w-toolbar').addClass('w-off');
     jQuery('.section > .w-toolbar > .w-menu > .w-menu-dd .close-toolbar')
-      .live('click', function (e) {
+      .on('click', function (e) {
         jQuery(this).parents('ul:first').slideUp(function (e) {
           jQuery(this).parents('.w-menu-dd:first, .w-toolbar:first')
             .removeClass('w-on')
@@ -522,7 +567,8 @@ var sfPlopAdmin = {
       })
     ;
     jQuery('.section > .w-toolbar > .w-menu > .w-menu-dd > .element')
-      .live('click', function (e) {
+      .not('.w-bound')
+      .on('click', function (e) {
         if (jQuery('.w-admin-active').length > 0) {
           sfPlopAdmin.unloadContentEdition();
         }
@@ -551,6 +597,7 @@ var sfPlopAdmin = {
                 .removeClass('w-off')
                 .addClass('w-on')
               ;
+              sfPlopAdmin.loadSlotPlugins();
             },
             error: function (x) {
               if (x.status == 401)
@@ -560,6 +607,7 @@ var sfPlopAdmin = {
         }
         e.preventDefault();
       })
+      .addClass('w-bound')
     ;
     if (!sfPlopAdmin.checkSlotToolbarMenuToggler())
       jQuery('.section > .w-toolbar')
@@ -589,13 +637,15 @@ var sfPlopAdmin = {
    */
   loadToolbarMenuItems : function () {
     jQuery('.section > .w-toolbar > .w-menu > .w-menu-dd > ul a.w-ajax, body > .w-toolbar > .nav > .w-menu a.w-ajax')
-      .live('click', function (e) {
+      .not('.w-bound')
+      .on('click', function (e) {
         sfPlopAdmin.loadAjaxElements(
           jQuery(this),
           jQuery(this).parents('.w-toolbar:first')
         );
         e.preventDefault();
       })
+      .addClass('w-bound')
     ;
   },
 
@@ -604,10 +654,12 @@ var sfPlopAdmin = {
    */
   loadAdminAjaxMenuItems : function () {
     jQuery('body.admin-bo > .container a.w-ajax')
-      .live('click', function (e) {
+    .not('.w-bound')
+      .on('click', function (e) {
         sfPlopAdmin.loadAjaxElements(jQuery(this));
         e.preventDefault();
       })
+      .addClass('w-bound')
     ;
   },
 
@@ -616,7 +668,7 @@ var sfPlopAdmin = {
    */
   loadContentEdition : function () {
     sfPlopAdmin.launchContentEdition('body', true);
-    jQuery('.section > .w-toolbar a.w-admin-content').live('click', function (e) {
+    jQuery('.section > .w-toolbar a.w-admin-content').on('click', function (e) {
       var
         container = jQuery(this).parents('.section:first').addClass('w-admin-active'),
         linkToContainer = jQuery(this)
@@ -695,76 +747,64 @@ var sfPlopAdmin = {
     });
   },
 
-  /*
-   * Load the slot creation.
+  /**
+   * When the slot has been created, update the page with the data from the form
+   * @param  {Object} form jQuery object
+   * @param  {Object} data Response from the form
    */
-  loadSlotCreation: function () {
-    jQuery('form.w-admin-create-slot').live('submit', function(e) {
-      jQuery(this).ajaxSubmit({
-        url: jQuery(this).attr('href'),
-        success: function (d, s, x) {
-          if (jQuery('#container > .section.Area').length > 0)
-            jQuery(d).appendTo('#container > .section.Area');
-          else if (jQuery('#container > .section').length > 0)
-            jQuery(d).insertAfter('#container > .section:last');
-          else
-            jQuery(d).prependTo('#container');
-          sfPlopAdmin.notify({
-            text: sfPlopAdmin.val('i18n.slot_creation_success')
-          });
-          jQuery('#' + sfPlopAdmin.val('jquery_dialog_id')).dialog('close');
-          sfPlopAdmin.loadPlugins();
-          jQuery(window).trigger('load');
-          sfPlopAdmin.checkSlotToolbarMenuToggler();
-        },
-        error: function (x) {
-          if (x.status == 401)
-            window.location.href = sfPlopAdmin.val('login_url');
-        }
-      });
-      e.preventDefault();
+  slotCreationSuccess: function (form, data) {
+    if (jQuery('#container > .section.Area').length > 0)
+      jQuery(data).appendTo('#container > .section.Area');
+    else if (jQuery('#container > .section').length > 0)
+      jQuery(data).insertAfter('#container > .section:last');
+    else
+      jQuery(data).prependTo('#container');
+    sfPlopAdmin.notify({
+      text: sfPlopAdmin.val('i18n.slot_creation_success')
     });
+    jQuery('#' + sfPlopAdmin.val('jquery_dialog_id')).dialog('close');
+    sfPlopAdmin.rebindSlots();
   },
 
-  /*
-   * Load the slot edition.
+  /**
+   * When the slot content has been edited, update the page with the data from 
+   * the form
+   * @param  {Object} form jQuery object
+   * @param  {Object} data Response from the form
    */
-  loadSlotEdition: function () {
-    jQuery('form.w-admin-edit-slot').live('submit', function(e) {
-      var slot = jQuery(this).attr('rel');
-      jQuery(this).ajaxSubmit({
-        url: jQuery(this).attr('href'),
-        success: function (d, s, x) {
-          if (jQuery('#slot_' + slot).length > 0)
-            jQuery('#slot_' + slot).replaceWith(d);
-          sfPlopAdmin.notify({
-            text: sfPlopAdmin.val('i18n.slot_edition_success')
-          });
-          jQuery('#' + sfPlopAdmin.val('jquery_dialog_id')).dialog('close');
-          // sfPlopAdmin.loadPlugins();
-          sfPlopAdmin.loadSlotPlugins();
-          sfPlop.loadPlugins();
-          sfPlopAdmin.checkSlotToolbarMenuToggler();
-          jQuery(window).trigger('load');
-        },
-        error: function (x) {
-          if (x.status == 401)
-            window.location.href = sfPlopAdmin.val('login_url');
-        }
-      });
-      e.preventDefault();
-    });
+  slotContentEditionSuccess : function (form, data) {
+    this.unloadContentEdition();
+    if (jQuery('#slot_' + form.attr('rel')).length > 0)
+      jQuery('#slot_' + form.attr('rel')).replaceWith(d);
+    sfPlopAdmin.rebindSlots();
   },
 
-  /*
-   * Load the slot reorder with drag'n'drop and sortables behaviors.
+  /**
+   * When the slot options has been edited, update the page with the data from 
+   * the form
+   * @param  {Object} form jQuery object
+   * @param  {Object} data Response from the form
    */
-  loadSlotReorder: function () {
+  slotEditionSuccess: function (form, data) {
+    var slot = form.attr('rel');
+    if (jQuery('#slot_' + slot).length > 0)
+      jQuery('#slot_' + slot).replaceWith(data);
+    sfPlopAdmin.notify({
+      text: sfPlopAdmin.val('i18n.slot_edition_success')
+    });
+    jQuery('#' + sfPlopAdmin.val('jquery_dialog_id')).dialog('close');
+    sfPlopAdmin.rebindSlots();
+  },
+
+  /**
+   * Load the jQuery UI sortable behavior on slots or reindexing them
+   */
+  slotReorder: function () {
     if (this.val('slot-sortable')) {
       jQuery(this.val('slot-sortable')).sortable('refresh');
     }
     else {
-      var sortable = jQuery('#container > .section.Area > .section[data-handle-url]').length > 0 
+      var sortable = jQuery('#container > .section.Area > .section[data-handle-url]').length > 0
         ? '#container > .section.Area'
         : '#container'
       ;

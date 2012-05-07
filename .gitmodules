@@ -1,0 +1,3 @@
+[submodule "web/vendor/aloha-editor"]
+	path = web/vendor/aloha-editor
+	url = git://github.com/alohaeditor/Aloha-Editor.git

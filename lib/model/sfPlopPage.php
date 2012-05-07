@@ -189,9 +189,9 @@ class sfPlopPage extends BasesfPlopPage {
 
   /**
    * Check if the current page can have slots
-   * @return boolean 
+   * @return boolean
    */
-  public function isSlotable() 
+  public function isSlotable()
   {
     return ($this->isTemplate() && !$this->isCategory())
       || (!$this->isTemplate() && $this->getTemplate()->hasSlotArea());
@@ -265,7 +265,9 @@ class sfPlopPage extends BasesfPlopPage {
         $this->deleteOwnSlots();
 
       $this->getPeer()->removeInstanceFromPool($this);
-      $oldTemplateId = $this->getPeer()->retrieveByPK($this->getId())->getTemplateId();
+      $oldTemplate = $this->getPeer()->retrieveByPK($this->getId());
+      if ($oldTemplate)
+        $oldTemplateId = $oldTemplate->getTemplateId();
       if ($oldTemplateId != $this->getTemplateId())
         $this->deleteUnusedInheritedSlotConfigs($oldTemplateId);
     }

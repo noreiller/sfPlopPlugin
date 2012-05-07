@@ -36,6 +36,6 @@ class sfPlopSlotRichText extends sfPlopSlotStandard
 
   public function getSlotValue($slot, $settings)
   {
-    return htmlspecialchars_decode($slot->getValue($settings['culture']), ENT_QUOTES);
+    return htmlspecialchars_decode($slot->getValue($settings['culture']), ENT_QUOTES) . clear();
   }
 }

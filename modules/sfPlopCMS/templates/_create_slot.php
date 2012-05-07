@@ -6,7 +6,7 @@
 
 <form action="<?php echo url_for('@sf_plop_page_create_slot?sf_culture=' . $culture . '&slug=' . $page->getSlug()) ?>"
   method="POST"
-  class="w-form w-form-i <?php if ($sf_request->isXmlHttprequest()): ?>w-admin-create-slot<?php endif; ?>">
+  class="w-form w-form-i w-ajax <?php if ($sf_request->isXmlHttprequest()): ?>w-admin-create-slot<?php endif; ?>">
 
   <?php include_partial('sfPlopCMS/form_fields', array('form' => $form)) ?>
 

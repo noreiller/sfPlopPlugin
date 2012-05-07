@@ -5,7 +5,7 @@
 <?php endif; ?>
 
 <form action="<?php echo url_for('@sf_plop_slot_edit_options?sf_culture=' . $culture . '&id=' . $form->getObject()->getId()) ?>"
-  method="POST" class="w-form w-form-i w-admin-edit-slot" rel="<?php echo $form->getObject()->getId() ?>">
+  method="POST" class="w-form w-form-i w-admin-edit-slot w-ajax" rel="<?php echo $form->getObject()->getId() ?>">
   
   <?php include_partial('sfPlopCMS/form_fields', array(
     'form' => $form,

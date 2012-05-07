@@ -39,7 +39,7 @@
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="/sfPlopPlugin/vendor/jquery/js/jquery-1.7.1.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="/sfPlopPlugin/vendor/jquery/js/jquery-1.6.1.min.js"><\/script>')</script>
 
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
   <script>window.jQuery.ui || document.write('<script src="/sfPlopPlugin/vendor/jquery/js/jquery-ui-1.8.17.min.js"><\/script>')</script>

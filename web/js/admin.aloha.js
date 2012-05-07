@@ -19,21 +19,29 @@ var sfPlopAloha = {
    */
   _value : '',
 
-  /*
-   * Init the rich-text editor.
+  /**
+   * Init the rich text editor
    */
-  init : function (f, t) {
-    (function(window, undefined){
-      if (window.Aloha === undefined || window.Aloha === null) {
-        window.Aloha = {};
-      }
-      window.Aloha.settings = sfPlopAdmin.val('aloha.settings');
-      sfPlopAloha._status = true;
-      sfPlopAloha.loadPlugins();
-    })(window);
+  init : function () {
+    if (this._status == false) {
+      ( function ( window, undefined ) {
+        var Aloha = window.Aloha || ( window.Aloha = {} );
+        Aloha.settings = sfPlopAdmin.val('aloha.settings');
+        sfPlopAloha._status = true;
+        sfPlopAloha.loadPlugins();
+      })(window);
 
+      sfPlopAdmin.addCss(sfPlopAdmin.val('richtext-editor-css'));
+      sfPlopAdmin.addScript(sfPlopAdmin.val('richtext-editor-script'));
+    }
+  },
+
+  /*
+   * Bind the rich-text editor and load the edition of the given node
+   */
+  bind : function (f, t) {
+    this.init();
     Aloha.ready(function() {
-//      this.setUrlset();
       sfPlopAloha.load(f, t);
     });
   },
@@ -45,7 +53,7 @@ var sfPlopAloha = {
    */
   load : function (f, t) {
     if (f != undefined && this._status != true) {
-      this.init(f, t);
+      this.bind(f, t);
     }
     else if (f != undefined) {
       if (this._field != '' && this._editor != '' )
@@ -66,7 +74,7 @@ var sfPlopAloha = {
   },
 
   /*
-   * Rest the rich-text edition.
+   * Reset the rich-text edition.
    */
   reset : function () {
     jQuery('#' + this._field).val(this._value);

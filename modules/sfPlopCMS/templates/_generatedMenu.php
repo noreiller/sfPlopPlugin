@@ -45,13 +45,15 @@
         (($use_icon && $node->getIcon()) ? image_tag($node->getIcon(), array('alt' => $node_title)) : null)
           . ($use_title ? content_tag('strong', $node->getTitle()) : null)
           . ($use_subtitle ? content_tag('em', $node_subtitle) : null); ?>
-      <?php $is_current = (
-        ($node->getSlug() == $settings['page']->getSlug())
-        || ($settings['page']->isDescendantOf($node) && !$node->isRoot())
-      )
-        ? true : false; ?>
+      <?php $is_current = $node->getSlug() == $settings['page']->getSlug(); ?>
+      <?php $is_current_ancestor = $settings['page']->isDescendantOf($node) && !$node->isRoot(); ?>
+      <?php
+        $class = array('lvl' . $level);
+         if ($is_current) $class []= 'active';
+         if ($is_current_ancestor) $class []= 'current';
+      ?>
 
-      <li class="<?php if ($is_current): ?>current <?php endif; ?> lvl<?php echo $level ?>">
+      <li class="<?php echo implode(' ', $class) ?>">
         <?php echo link_to_unless(
           $node->isCategory(),
           $node_label,

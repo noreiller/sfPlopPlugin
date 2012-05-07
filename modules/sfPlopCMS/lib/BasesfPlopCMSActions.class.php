@@ -51,25 +51,7 @@ class BasesfPlopCMSActions extends sfActions
 
     $this->getResponse()->addMeta('language', $this->getCulture(), true);
 
-    if (!$this->getRequest()->isXmlHttpRequest()
-      && $this->getUser()->isAuthenticated() && $this->getUser()->isSuperAdmin())
-    {
-      $this->getResponse()->addStylesheet('/sfPlopPlugin/css/admin.css', 'last');
-      $this->getResponse()->addJavascript('/sfPlopPlugin/js/admin.aloha.js', 'last');
-      $this->getResponse()->addJavascript('/sfPlopPlugin/js/admin.js', 'last');
-
-      $this->getResponse()->addStylesheet('/sfPlopPlugin/vendor/aloha/css/aloha.css');
-      // extra/browser,extra/linkbrowser
-      $this->getResponse()->addJavascript(
-        '/sfPlopPlugin/vendor/aloha/lib/aloha.js',
-        '',
-        array(
-          'data-aloha-plugins' => 'common/format,common/table,common/list,common/link,common/undo,common/paste,common/contenthandler,common/characterpicker,common/image,common/align,plopcms/plopcms'
-        )
-      );
-    }
-    else if (!$this->getRequest()->isXmlHttpRequest()
-      && $this->getUser()->isAuthenticated())
+    if (!$this->getRequest()->isXmlHttpRequest() && $this->getUser()->isAuthenticated())
     {
       $this->getResponse()->addStylesheet('/sfPlopPlugin/css/admin.css', 'last');
       $this->getResponse()->addJavascript('/sfPlopPlugin/js/admin.js', 'last');
