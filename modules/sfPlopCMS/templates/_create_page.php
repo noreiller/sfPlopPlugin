@@ -5,7 +5,7 @@
 <?php endif; ?>
 
 <form action="<?php echo url_for('@sf_plop_page_create?sf_culture=' . $culture) ?>"
-  method="POST" class="w-form w-form-i">
+  method="POST" class="w-form w-form-i w-ajax w-admin-page">
   
   <?php include_partial('sfPlopCMS/form_fields', array(
     'form' => $form,

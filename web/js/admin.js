@@ -299,14 +299,20 @@ var sfPlopAdmin = {
                 ;
             },
             success: function(d) {
-              if (form.hasClass('w-admin-edit-slot'))
+              if (jQuery(d).find('.error_list').length) {
+                sfPlopAdmin.ajaxFormError(form, d);
+                d = sfPlopAdmin.val('i18n.error');
+              }
+              else if (form.hasClass('w-admin-content-slot')) {
+                sfPlopAdmin.slotContentEditionAction(form, d);
+                d = sfPlopAdmin.val('i18n.slot_edition_success');
+              }
+              else if (form.hasClass('w-admin-edit-slot'))
                 return sfPlopAdmin.slotEditionSuccess(form, d);
               else if (form.hasClass('w-admin-create-slot'))
                 return sfPlopAdmin.slotCreationSuccess(form, d);
-              else if (form.hasClass('w-admin-content-slot')) {
-                sfPlopAdmin.slotContentEditionSuccess(form, d);
-                d = sfPlopAdmin.val('i18n.slot_edition_success');
-              }
+              else if (form.hasClass('w-admin-page'))
+                window.location.href = d;
               else if (form.hasClass('w-admin-theme-switch'))
                 sfPlopAdmin.checkAdminTheme();
               else
@@ -337,6 +343,16 @@ var sfPlopAdmin = {
         .addClass('w-bound')
       ;
     });
+  },
+
+  /**
+   * Replace the form with the refreshed form containing error labels.
+   * @param  {Object} form jQuery object
+   * @param  {Object} data Response from the form
+   */
+  ajaxFormError : function (form, data) {
+    form.parents('div:first').html(data);
+    sfPlopAdmin.loadAjaxForm();
   },
 
   /**
@@ -769,6 +785,19 @@ var sfPlopAdmin = {
   /**
    * When the slot content has been edited, update the page with the data from 
    * the form
+   * @param  {Object} form jQuery object
+   * @param  {Object} data Response from the form
+   */
+  slotContentEditionAction : function (form, data) {
+    if (jQuery(data).find('.error_list').length)
+      this.slotContentEditionError(form, data);
+    else
+      this.slotContentEditionSuccess(form, data);
+  },
+
+  /**
+   * When the slot content has been edited and is valid, update the page with 
+   * the data from the form
    * @param  {Object} form jQuery object
    * @param  {Object} data Response from the form
    */

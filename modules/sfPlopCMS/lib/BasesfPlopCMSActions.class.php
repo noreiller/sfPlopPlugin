@@ -206,7 +206,12 @@ class BasesfPlopCMSActions extends sfActions
       if ($this->form->isValid())
       {
         $this->page = $this->form->save();
-        return $this->redirect('@sf_plop_page_show?slug=' . $this->page->getSlug());
+        if (!$request->isXmlHttpRequest())
+          return $this->redirect('@sf_plop_page_show?slug=' . $this->page->getSlug());
+        else {
+          sfProjectConfiguration::getActive()->loadHelpers('Url');
+          return $this->renderText(url_for('@sf_plop_page_show?slug=' . $this->page->getSlug()));
+        }
       }
     }
 
