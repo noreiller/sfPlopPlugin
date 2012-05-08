@@ -305,7 +305,7 @@ var sfPlopAdmin = {
                 return sfPlopAdmin.slotCreationSuccess(form, d);
               else if (form.hasClass('w-admin-content-slot')) {
                 sfPlopAdmin.slotContentEditionSuccess(form, d);
-                d = this.val('i18n.slot_edition_success');
+                d = sfPlopAdmin.val('i18n.slot_edition_success');
               }
               else if (form.hasClass('w-admin-theme-switch'))
                 sfPlopAdmin.checkAdminTheme();
@@ -775,7 +775,7 @@ var sfPlopAdmin = {
   slotContentEditionSuccess : function (form, data) {
     this.unloadContentEdition();
     if (jQuery('#slot_' + form.attr('rel')).length > 0)
-      jQuery('#slot_' + form.attr('rel')).replaceWith(d);
+      jQuery('#slot_' + form.attr('rel')).replaceWith(data);
     sfPlopAdmin.rebindSlots();
   },
 

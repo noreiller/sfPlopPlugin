@@ -146,7 +146,7 @@ class sfPlopPluginConfiguration extends sfPluginConfiguration
         'RegisterForm' => 'Register form',
         'Code' => 'Code block',
 //        'Redirection' => 'Redirection',
-//        'XmlFeed' => 'Xml feed',
+       'XmlFeed' => 'Xml feed',
         'Date' => 'Date',
 //        'Calendar' => 'Calendar',
 //        'BlogArticle' => 'Blog article'
@@ -198,6 +198,7 @@ class sfPlopPluginConfiguration extends sfPluginConfiguration
         'RegisterForm',
         'Code',
         'Date',
+        'XmlFeed',
         'ThemeSwitcher',
         'PoweredByPlopCMS',
         'DistantGallery',

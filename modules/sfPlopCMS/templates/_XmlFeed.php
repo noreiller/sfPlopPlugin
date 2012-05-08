@@ -1,71 +1,46 @@
-<?php use_helper('I18N', 'jQuery', 'Date') ?>
-
-<?php
-if($slot->getOption('url') && $slot->getOption('displays'))
-	$xmlFeed = sfFeedPeer::createFromWeb($slot->getOption('url'));
-else
-	$xmlFeed = false;
-?>
-<?php if($xmlFeed): ?>
-  <ul class="XmlFeed_list">
+<?php if ($feed === false): ?>
+  <p><?php echo __('The feed can\'t be displayed.') ?></p>
+<?php else: ?>
+  <ul class="w-list">
     <li>
       <strong>
-        <?php $title = $xmlFeed->getDescription() ? $xmlFeed->getDescription() : $xmlFeed->getTitle(); ?>
-        <?php echo (
-          $slot->getOption('truncate_text')
-          && $slot->getOption('truncate_type') == 'title'
-        ) ?
-          sfPlopTools::truncate_txt($title, $slot->getOption('truncate_text'), true)
-          : $title
+        <?php echo ($truncate_text && $truncate_type == 'title')
+          ? truncate_text($feed['title'], $truncate_text, '...', true)
+          : $feed['title']
         ; ?>
       </strong>
     </li>
-    <?php $i=0; foreach($xmlFeed->getItems() as $post): $i++; ?>
+    <?php foreach ($feed['items'] as $item): ?>
       <li>
-        <p>
-          <?php if(in_array('element_title', $slot->getOption('displays'))): ?>
-            <?php $title = (
-              $slot->getOption('truncate_text')
-              && $slot->getOption('truncate_type') == 'element_title'
-            ) ?
-              sfPlopTools::truncate_txt($post->getTitle(), $slot->getOption('truncate_text'), true)
-              : $post->getTitle()
+        <?php if (in_array('element_title', $displays)): ?>
+          <?php $title = ($truncate_text && $truncate_type == 'element_title') 
+            ? truncate_text($item['title'], $truncate_text, '...', true)
+            : $item['title']
+          ; ?>
+          <strong><?php echo link_to($title, $item['url'], array(
+            'class' => 'link',
+            'target' => '_blank',
+            'title' => $item['title']
+          )) ?></strong>
+        <?php endif; ?>
+        <?php if (in_array('element_description', $displays)): ?>
+          <br />
+          <?php echo ($truncate_text && $truncate_type == 'element_description') 
+            ? truncate_text($item['description'], $truncate_text, '...', true)
+            : $item['description']
+          ; ?>
+        <?php endif; ?>
+        <?php if (in_array('element_date', $displays)): ?>
+          <?php $date = format_date($item['date'], 'EEEE dd MMMM yyyy') ?>
+          <br />
+          <em>
+            <?php echo ($truncate_text && $truncate_type == 'element_date') 
+              ? truncate_text($date, $truncate_text, '...', true)
+              : $date
             ; ?>
-            <strong><?php echo link_to(
-              $title,
-              $post->getLink(),
-              array(
-                'class' => 'link',
-                'target' => '_blank',
-                'title' => $post->getTitle()
-            )) ?></strong>
-          <?php endif; ?>
-          <?php if(in_array('element_description', $slot->getOption('displays'))): ?>
-            <br />
-            <?php echo (
-              $slot->getOption('truncate_text')
-              && $slot->getOption('truncate_type') == 'element_description'
-            ) ?
-              sfPlopTools::truncate_txt($post->getDescription(), $slot->getOption('truncate_text'), true)
-              : $post->getDescription()
-            ; ?>
-          <?php endif; ?>
-          <?php if(in_array('element_date', $slot->getOption('displays'))): ?>
-            <?php $date = format_date($post->getPubdate(), 'EEEE dd MMMM yyyy') ?>
-            <br />
-            <em>
-              <?php echo (
-                $slot->getOption('truncate_text')
-                && $slot->getOption('truncate_type') == 'element_date'
-              ) ?
-                sfPlopTools::truncate_txt($date, $slot->getOption('truncate_text'), true)
-                : $date
-              ; ?>
-            </em>
-          <?php endif; ?>
-        </p>
+          </em>
+        <?php endif; ?>
       </li>
-      <?php if($i == $slot->getOption('limit')) break; ?>
     <?php endforeach; ?>
   </ul>
 <?php endif; ?>

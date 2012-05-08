@@ -81,8 +81,10 @@ class sfPlopSlotConfigI18nForm extends BasesfPlopSlotConfigI18nForm
   public function dumpOptions(sfValidatorBase $validator, array $values, $arguments)
   {
     $options = array();
-    foreach($arguments['slot_fields'] as $field) {
-      if ($field != 'value') {
+    foreach ($arguments['slot_fields'] as $field) 
+    {
+      if ($field != 'value') 
+      {
         $options[$field] = $values[$field];
         unset($values[$field]);
       }
