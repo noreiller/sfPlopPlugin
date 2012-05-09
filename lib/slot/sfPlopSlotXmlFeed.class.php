@@ -83,7 +83,7 @@ class sfPlopSlotXmlFeed extends sfPlopSlotStandard
       curl_close($ch);
     }
 
-    if (isset($data))
+    if (isset($data) && $data !== false)
     {
       $doc = new SimpleXmlElement($data, LIBXML_NOCDATA);
       if (isset($doc->channel))
