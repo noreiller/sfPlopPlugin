@@ -71,11 +71,12 @@ class sfPlopGuard
     $permissions = sfGuardPermissionPeer::doSelect(new Criteria());
 
     foreach($permissions as $permission)
-      $array [$permission->getName()] = array(
-        'id' => $permission->getId(),
-        'name' => $permission->getName(),
-        'description' => $permission->getDescription()
-      );
+      if (in_array($permission->getName(), array_keys(sfPlop::getSafePluginModules())))
+        $array [$permission->getName()] = array(
+          'id' => $permission->getId(),
+          'name' => $permission->getName(),
+          'description' => $permission->getDescription()
+        );
 
     foreach(sfPlop::getSafePluginModules() as $key => $options)
       if (!isset($array[$key]))

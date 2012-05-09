@@ -17,30 +17,35 @@
   <table class="w-table" id="group-permissions">
 
     <tr>
-      <th></th>
-      <?php foreach($permissions as $permission): ?>
-        <th>
-          <?php echo __($permission['description'], '', 'plopAdmin') ?>
-        </th>
-      <?php endforeach; ?>
+      <th rowspan="2" colspan="2"></th>
+      <th colspan="<?php echo count($groups) ?>"> <?php echo __('Groups', '', 'plopAdmin') ?></th>
     </tr>
-
-
-    <?php foreach($groups as $group): ?>
-      <tr>
+    <tr>
+      <?php foreach ($groups as $group): ?>
         <th>
           <?php if (in_array('sfGuardGroup', sfPlop::getSafePluginModules())
             && $sf_user->hasCredential('sfGuardGroup')
           ): ?>
             <?php echo link_to(
-              $group->getDescription(),
+              __($group->getDescription(), '', 'plopAdmin'),
               'sfGuardGroup/edit?id=' . $group->getId()
             ); ?>
           <?php else: ?>
-            <?php echo $group->getDescription(); ?>
+            <?php echo __($group->getDescription(), '', 'plopAdmin'); ?>
           <?php endif; ?>
         </th>
-        <?php foreach($permissions as $permission): ?>
+      <?php endforeach; ?>
+    </tr>
+
+    <?php $i = 0; foreach ($permissions as $permission): ?>
+      <tr>
+        <?php if ($i == 0): ?>
+          <th rowspan="<?php echo count($permissions) ?>"><?php echo __('Permissions', '', 'plopAdmin') ?></th>
+        <?php endif; ?>
+        <th>
+          <?php echo __($permission['description'], '', 'plopAdmin') ?>
+        </th>
+        <?php foreach ($groups as $group): ?>
           <?php $group_has_permission = sfPlopGuard::groupHasPermission($group->getId(), $permission['id']); ?>
           <td>
             <?php echo link_to(
@@ -58,7 +63,7 @@
           </td>
         <?php endforeach; ?>
       </tr>
-    <?php endforeach; ?>
+    <?php $i++; endforeach; ?>
 
   </table>
 
@@ -73,7 +78,10 @@
   <table class="w-table" id="user-groups">
 
     <tr>
-      <th></th>
+      <th rowspan="2" colspan="2"></th>
+      <th colspan="<?php echo count($groups) + 1 ?>"> <?php echo __('Groups', '', 'plopAdmin') ?></th>
+    </tr>
+    <tr>
       <th><?php echo __('Super admin', '', 'plopAdmin') ?></th>
       <?php foreach($groups as $group): ?>
         <th>
@@ -82,8 +90,11 @@
       <?php endforeach; ?>
     </tr>
 
-    <?php foreach($users as $user): ?>
+    <?php $i = 0; foreach($users as $user): ?>
       <tr>
+        <?php if ($i == 0): ?>
+          <th rowspan="<?php echo count($users) ?>"><?php echo __('Users', '', 'plopAdmin') ?></th>
+        <?php endif; ?>
         <th>
           <?php if (in_array('sfGuardUser', sfPlop::getSafePluginModules())
             && $sf_user->hasCredential('sfGuardUser')
@@ -126,7 +137,7 @@
               )
             ) ?>
           </td>
-        <?php endforeach; ?>
+        <?php $i++; endforeach; ?>
       </tr>
     <?php endforeach; ?>
 
