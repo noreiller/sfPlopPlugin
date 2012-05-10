@@ -571,17 +571,6 @@ var sfPlopAdmin = {
    */
   loadSlotToolbarMenu : function () {
     jQuery('.section > .w-toolbar').addClass('w-off');
-    jQuery('.section > .w-toolbar > .w-menu > .w-menu-dd .close-toolbar')
-      .on('click', function (e) {
-        jQuery(this).parents('ul:first').slideUp(function (e) {
-          jQuery(this).parents('.w-menu-dd:first, .w-toolbar:first')
-            .removeClass('w-on')
-            .addClass('w-off')
-          ;
-          jQuery(this).remove();
-        });
-      })
-    ;
     jQuery('.section > .w-toolbar > .w-menu > .w-menu-dd > .element')
       .not('.w-bound')
       .on('click', function (e) {
@@ -652,6 +641,17 @@ var sfPlopAdmin = {
    * Load the toolbar menu items with ajax events on live click event.
    */
   loadToolbarMenuItems : function () {
+    jQuery('.section > .w-toolbar > .w-menu > .w-menu-dd .close-toolbar')
+      .on('click', function (e) {
+        jQuery(this).parents('ul:first').slideUp(function (e) {
+          jQuery(this).parents('.w-menu-dd:first, .w-toolbar:first')
+            .removeClass('w-on')
+            .addClass('w-off')
+          ;
+          jQuery(this).remove();
+        });
+      })
+    ;
     jQuery('.section > .w-toolbar > .w-menu > .w-menu-dd > ul a.w-ajax, body > .w-toolbar > .nav > .w-menu a.w-ajax')
       .not('.w-bound')
       .on('click', function (e) {
