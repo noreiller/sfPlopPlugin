@@ -174,7 +174,7 @@ class sfPlopPluginConfiguration extends sfPluginConfiguration
       'sf_plop_richtext_editor_aloha-editor_css' => '/sfPlopPlugin/vendor/aloha-editor/src/css/aloha.css',
       'sf_plop_richtext_editor_aloha-editor_script' => array(
         'src' => '/sfPlopPlugin/vendor/aloha-editor/src/lib/aloha.js',
-        'data-aloha-plugins' => 'common/format,common/table,common/list,common/link,common/undo,common/paste,common/contenthandler,common/characterpicker,common/image,common/align,plopcms/plopcms'
+        'data-aloha-plugins' => 'common/format,common/table,common/list,common/link,common/undo,common/paste,common/contenthandler,common/characterpicker,common/image,common/align,plopcms/plopcms,aloha-editor-extra-plugins/hr/hr'
       )
     ));
 

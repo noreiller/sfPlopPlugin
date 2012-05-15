@@ -41,7 +41,10 @@ var sfPlopAdmin = {
       errorhandling : true,
       locale: this.val('aloha.i18n.current'),
       // jQuery: jQuery,
-      bundles: { plopcms: '/sfPlopPlugin/js/aloha' },
+      bundles: { 
+        plopcms: '/sfPlopPlugin/js/aloha',
+        'aloha-editor-extra-plugins': '/sfPlopPlugin/vendor/aloha-editor-extra-plugins' 
+      },
       floatingmenu: {
         behaviour: 'topalign',
         draggable: false,
