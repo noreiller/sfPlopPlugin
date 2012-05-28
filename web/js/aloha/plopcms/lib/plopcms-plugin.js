@@ -240,16 +240,9 @@ function ( jQuery, repository ) {
             success: function(data) {
               jQuery.each(data, function(i, v) {
                 var re = new RegExp(queryString);
-                if (!v.name) {v.name = "No name";}
+                if (!v.name)
+									v.name = "No name";
                 if (v.url.match(re) || v.name.match(re)) {
-//                  result.push(new Aloha.RepositoryDocument ({
-//                    id: v.url,
-//                    name: v.name,
-//                    objectType: v.type == 'image' ? v.type : 'document',
-//                    repositoryId: that.repositoryId,
-//                    type: v.type == 'image' ? v.type : 'document',
-//                    url: v.url
-//                  }));
                   result.push({
                     name: v.name,
                     type: v.type == 'image' ? v.type : 'document',
