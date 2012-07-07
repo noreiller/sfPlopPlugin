@@ -39,6 +39,7 @@ pre {
   height: 250px;
   width: 400px;
 }
+#sf_asset_bar,
 #sf_admin_bar {
   position: relative;
   z-index: 1;
